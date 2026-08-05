@@ -1,0 +1,478 @@
+# codeberg.org/go-pdf/fpdf v0.12.0
+## explicit; go 1.25.0
+# cogentcore.org/core v0.3.39
+## explicit; go 1.25.6
+cogentcore.org/core/base/bools
+cogentcore.org/core/base/datasize
+cogentcore.org/core/base/elide
+cogentcore.org/core/base/errors
+cogentcore.org/core/base/fileinfo
+cogentcore.org/core/base/fileinfo/mimedata
+cogentcore.org/core/base/fsx
+cogentcore.org/core/base/indent
+cogentcore.org/core/base/iox
+cogentcore.org/core/base/iox/imagex
+cogentcore.org/core/base/iox/jsonx
+cogentcore.org/core/base/iox/tomlx
+cogentcore.org/core/base/jscp
+cogentcore.org/core/base/keylist
+cogentcore.org/core/base/labels
+cogentcore.org/core/base/metadata
+cogentcore.org/core/base/nptime
+cogentcore.org/core/base/num
+cogentcore.org/core/base/option
+cogentcore.org/core/base/ordmap
+cogentcore.org/core/base/plan
+cogentcore.org/core/base/profile
+cogentcore.org/core/base/reflectx
+cogentcore.org/core/base/slicesx
+cogentcore.org/core/base/stack
+cogentcore.org/core/base/strcase
+cogentcore.org/core/base/stringsx
+cogentcore.org/core/base/tiered
+cogentcore.org/core/base/vcs
+cogentcore.org/core/colors
+cogentcore.org/core/colors/cam/cam16
+cogentcore.org/core/colors/cam/cie
+cogentcore.org/core/colors/cam/hct
+cogentcore.org/core/colors/cam/hsl
+cogentcore.org/core/colors/colormap
+cogentcore.org/core/colors/gradient
+cogentcore.org/core/colors/matcolor
+cogentcore.org/core/content
+cogentcore.org/core/content/bcontent
+cogentcore.org/core/core
+cogentcore.org/core/cursors
+cogentcore.org/core/cursors/cursorimg
+cogentcore.org/core/enums
+cogentcore.org/core/events
+cogentcore.org/core/events/key
+cogentcore.org/core/filetree
+cogentcore.org/core/gpu
+cogentcore.org/core/gpu/drawmatrix
+cogentcore.org/core/gpu/gpudraw
+cogentcore.org/core/htmlcore
+cogentcore.org/core/icons
+cogentcore.org/core/keymap
+cogentcore.org/core/math32
+cogentcore.org/core/paint
+cogentcore.org/core/paint/pdf
+cogentcore.org/core/paint/pimage
+cogentcore.org/core/paint/ppath
+cogentcore.org/core/paint/render
+cogentcore.org/core/paint/renderers
+cogentcore.org/core/paint/renderers/htmlcanvas
+cogentcore.org/core/paint/renderers/pdfrender
+cogentcore.org/core/paint/renderers/rasterx
+cogentcore.org/core/paint/renderers/rasterx/scan
+cogentcore.org/core/paint/renderers/svgrender
+cogentcore.org/core/styles
+cogentcore.org/core/styles/abilities
+cogentcore.org/core/styles/sides
+cogentcore.org/core/styles/states
+cogentcore.org/core/styles/styleprops
+cogentcore.org/core/styles/units
+cogentcore.org/core/svg
+cogentcore.org/core/system
+cogentcore.org/core/system/composer
+cogentcore.org/core/system/driver
+cogentcore.org/core/system/driver/android
+cogentcore.org/core/system/driver/base
+cogentcore.org/core/system/driver/desktop
+cogentcore.org/core/system/driver/ios
+cogentcore.org/core/system/driver/mobile/callfn
+cogentcore.org/core/system/driver/mobile/mobileinit
+cogentcore.org/core/system/driver/offscreen
+cogentcore.org/core/system/driver/web
+cogentcore.org/core/system/driver/web/jsfs
+cogentcore.org/core/text/csl
+cogentcore.org/core/text/diffbrowser
+cogentcore.org/core/text/difflib
+cogentcore.org/core/text/fonts
+cogentcore.org/core/text/highlighting
+cogentcore.org/core/text/htmltext
+cogentcore.org/core/text/lines
+cogentcore.org/core/text/paginate
+cogentcore.org/core/text/parse
+cogentcore.org/core/text/parse/complete
+cogentcore.org/core/text/parse/languages
+cogentcore.org/core/text/parse/languages/bibtex
+cogentcore.org/core/text/parse/languages/golang
+cogentcore.org/core/text/parse/languages/markdown
+cogentcore.org/core/text/parse/languages/tex
+cogentcore.org/core/text/parse/lexer
+cogentcore.org/core/text/parse/parser
+cogentcore.org/core/text/parse/supportedlanguages
+cogentcore.org/core/text/parse/syms
+cogentcore.org/core/text/printer
+cogentcore.org/core/text/rich
+cogentcore.org/core/text/runes
+cogentcore.org/core/text/search
+cogentcore.org/core/text/shaped
+cogentcore.org/core/text/shaped/shapers
+cogentcore.org/core/text/shaped/shapers/shapedgt
+cogentcore.org/core/text/shaped/shapers/shapedjs
+cogentcore.org/core/text/spell
+cogentcore.org/core/text/text
+cogentcore.org/core/text/textcore
+cogentcore.org/core/text/textpos
+cogentcore.org/core/text/token
+cogentcore.org/core/tree
+cogentcore.org/core/types
+cogentcore.org/core/yaegicore/coresymbols
+# github.com/0magnet/calvin v0.0.0-20241204203002-126d3bcd81d8
+## explicit; go 1.23.3
+github.com/0magnet/calvin
+# github.com/Bios-Marcel/wastebasket/v2 v2.0.3
+## explicit; go 1.23.4
+github.com/Bios-Marcel/wastebasket/v2
+github.com/Bios-Marcel/wastebasket/v2/internal
+github.com/Bios-Marcel/wastebasket/v2/wastebasket_nix
+github.com/Bios-Marcel/wastebasket/v2/wastebasket_windows
+# github.com/Masterminds/vcs v1.13.3
+## explicit; go 1.17
+github.com/Masterminds/vcs
+# github.com/adrg/strutil v0.3.1
+## explicit; go 1.14
+github.com/adrg/strutil/internal/mathutil
+github.com/adrg/strutil/internal/ngram
+github.com/adrg/strutil/internal/stringutil
+github.com/adrg/strutil/metrics
+# github.com/alecthomas/chroma/v2 v2.27.0
+## explicit; go 1.25
+github.com/alecthomas/chroma/v2
+github.com/alecthomas/chroma/v2/formatters/html
+github.com/alecthomas/chroma/v2/lexers
+github.com/alecthomas/chroma/v2/styles
+# github.com/andybalholm/brotli v1.2.2
+## explicit; go 1.22
+github.com/andybalholm/brotli
+github.com/andybalholm/brotli/flate
+github.com/andybalholm/brotli/matchfinder
+# github.com/anthonynsimon/bild v0.16.1
+## explicit; go 1.26
+github.com/anthonynsimon/bild/clone
+github.com/anthonynsimon/bild/convolution
+github.com/anthonynsimon/bild/math/f64
+github.com/anthonynsimon/bild/parallel
+github.com/anthonynsimon/bild/transform
+# github.com/aymerick/douceur v0.2.0
+## explicit
+github.com/aymerick/douceur/css
+github.com/aymerick/douceur/parser
+# github.com/bitfield/script v0.24.3
+## explicit; go 1.25.0
+github.com/bitfield/script
+# github.com/briandowns/spinner v1.23.2
+## explicit; go 1.17
+github.com/briandowns/spinner
+# github.com/chewxy/math32 v1.11.2
+## explicit; go 1.13
+github.com/chewxy/math32
+# github.com/cogentcore/yaegi v0.0.0-20260116172027-700fbf8949f3
+## explicit; go 1.25.6
+github.com/cogentcore/yaegi/internal/unsafe2
+github.com/cogentcore/yaegi/interp
+github.com/cogentcore/yaegi/stdlib/generic
+# github.com/dlclark/regexp2/v2 v2.5.2
+## explicit; go 1.25
+github.com/dlclark/regexp2/v2
+github.com/dlclark/regexp2/v2/helpers
+github.com/dlclark/regexp2/v2/syntax
+# github.com/ericchiang/css v1.4.0
+## explicit; go 1.15
+github.com/ericchiang/css
+# github.com/fatih/color v1.19.0
+## explicit; go 1.25.0
+github.com/fatih/color
+# github.com/fsnotify/fsnotify v1.10.1
+## explicit; go 1.23
+github.com/fsnotify/fsnotify
+github.com/fsnotify/fsnotify/internal
+# github.com/go-gl/glfw/v3.4/glfw v0.1.0-pre.1.0.20260707082822-2a407d02d01a
+## explicit; go 1.19
+github.com/go-gl/glfw/v3.4/glfw
+github.com/go-gl/glfw/v3.4/glfw/glfw/deps
+github.com/go-gl/glfw/v3.4/glfw/glfw/deps/glad
+github.com/go-gl/glfw/v3.4/glfw/glfw/deps/mingw
+github.com/go-gl/glfw/v3.4/glfw/glfw/deps/wayland
+github.com/go-gl/glfw/v3.4/glfw/glfw/include/GLFW
+github.com/go-gl/glfw/v3.4/glfw/glfw/src
+# github.com/go-text/typesetting v0.3.5-0.20260729084153-ddb7ff96ad4d
+## explicit; go 1.19
+github.com/go-text/typesetting/bidi
+github.com/go-text/typesetting/di
+github.com/go-text/typesetting/font
+github.com/go-text/typesetting/font/cff
+github.com/go-text/typesetting/font/cff/interpreter
+github.com/go-text/typesetting/font/opentype
+github.com/go-text/typesetting/font/opentype/tables
+github.com/go-text/typesetting/fontscan
+github.com/go-text/typesetting/harfbuzz
+github.com/go-text/typesetting/internal/unicodedata
+github.com/go-text/typesetting/language
+github.com/go-text/typesetting/segmenter
+github.com/go-text/typesetting/shaping
+# github.com/gobwas/glob v0.2.3
+## explicit
+github.com/gobwas/glob
+github.com/gobwas/glob/compiler
+github.com/gobwas/glob/match
+github.com/gobwas/glob/syntax
+github.com/gobwas/glob/syntax/ast
+github.com/gobwas/glob/syntax/lexer
+github.com/gobwas/glob/util/runes
+github.com/gobwas/glob/util/strings
+# github.com/gofiber/fiber/v3 v3.4.0
+## explicit; go 1.25.0
+github.com/gofiber/fiber/v3
+github.com/gofiber/fiber/v3/binder
+github.com/gofiber/fiber/v3/internal/contextvalue
+github.com/gofiber/fiber/v3/internal/logtemplate
+github.com/gofiber/fiber/v3/internal/nilerror
+github.com/gofiber/fiber/v3/internal/schemehost
+github.com/gofiber/fiber/v3/log
+github.com/gofiber/fiber/v3/middleware/static
+# github.com/gofiber/schema v1.8.3
+## explicit; go 1.25.0
+github.com/gofiber/schema
+# github.com/gofiber/utils/v2 v2.4.1
+## explicit; go 1.25.0
+github.com/gofiber/utils/v2
+github.com/gofiber/utils/v2/bytes
+github.com/gofiber/utils/v2/internal/caseconv
+github.com/gofiber/utils/v2/internal/unsafeconv
+github.com/gofiber/utils/v2/simd
+github.com/gofiber/utils/v2/strings
+github.com/gofiber/utils/v2/swar
+# github.com/gomarkdown/markdown v0.0.0-20260725000948-8435af3f5984
+## explicit; go 1.12
+github.com/gomarkdown/markdown
+github.com/gomarkdown/markdown/ast
+github.com/gomarkdown/markdown/html
+github.com/gomarkdown/markdown/parser
+# github.com/google/uuid v1.6.0
+## explicit
+github.com/google/uuid
+# github.com/gorilla/css v1.0.1
+## explicit; go 1.20
+github.com/gorilla/css/scanner
+# github.com/h2non/filetype v1.1.3
+## explicit; go 1.13
+github.com/h2non/filetype
+github.com/h2non/filetype/matchers
+github.com/h2non/filetype/matchers/isobmff
+github.com/h2non/filetype/types
+# github.com/hack-pad/go-indexeddb v0.3.2
+## explicit; go 1.18
+github.com/hack-pad/go-indexeddb/idb
+github.com/hack-pad/go-indexeddb/idb/internal/jscache
+# github.com/hack-pad/hackpadfs v0.2.4
+## explicit; go 1.19
+github.com/hack-pad/hackpadfs
+github.com/hack-pad/hackpadfs/indexeddb
+github.com/hack-pad/hackpadfs/indexeddb/idbblob
+github.com/hack-pad/hackpadfs/internal/jswrapper
+github.com/hack-pad/hackpadfs/keyvalue
+github.com/hack-pad/hackpadfs/keyvalue/blob
+github.com/hack-pad/hackpadfs/mem
+github.com/hack-pad/hackpadfs/mount
+# github.com/hack-pad/safejs v0.1.1
+## explicit; go 1.18
+github.com/hack-pad/safejs
+github.com/hack-pad/safejs/internal/catch
+github.com/hack-pad/safejs/internal/stackerr
+# github.com/inconshreveable/mousetrap v1.1.0
+## explicit; go 1.18
+github.com/inconshreveable/mousetrap
+# github.com/itchyny/gojq v0.12.19
+## explicit; go 1.24.0
+github.com/itchyny/gojq
+# github.com/itchyny/timefmt-go v0.1.8
+## explicit; go 1.24
+github.com/itchyny/timefmt-go
+# github.com/ivanpirog/coloredcobra v1.0.1
+## explicit; go 1.15
+github.com/ivanpirog/coloredcobra
+# github.com/jeandeaual/go-locale v0.0.0-20250612000132-0ef82f21eade
+## explicit; go 1.18
+github.com/jeandeaual/go-locale
+# github.com/jinzhu/copier v0.4.0
+## explicit; go 1.13
+github.com/jinzhu/copier
+# github.com/klauspost/compress v1.19.1
+## explicit; go 1.24
+github.com/klauspost/compress
+github.com/klauspost/compress/flate
+github.com/klauspost/compress/fse
+github.com/klauspost/compress/gzip
+github.com/klauspost/compress/huff0
+github.com/klauspost/compress/internal/cpuinfo
+github.com/klauspost/compress/internal/le
+github.com/klauspost/compress/internal/snapref
+github.com/klauspost/compress/zlib
+github.com/klauspost/compress/zstd
+github.com/klauspost/compress/zstd/internal/xxhash
+# github.com/mattn/go-colorable v0.1.15
+## explicit; go 1.18
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.24
+## explicit; go 1.20
+github.com/mattn/go-isatty
+# github.com/mitchellh/go-homedir v1.1.0
+## explicit
+github.com/mitchellh/go-homedir
+# github.com/oliverbestmann/webgpu v1.34.2
+## explicit; go 1.25
+github.com/oliverbestmann/webgpu/jsx
+github.com/oliverbestmann/webgpu/wgpu
+github.com/oliverbestmann/webgpu/wgpuglfw
+# github.com/oliverbestmann/webgpu/libs-android v0.0.0-20260628152806-6b27e30a172e
+## explicit
+github.com/oliverbestmann/webgpu/libs-android
+# github.com/oliverbestmann/webgpu/libs-darwin v0.0.0-20260628152755-66a5dfa57f8d
+## explicit
+github.com/oliverbestmann/webgpu/libs-darwin
+# github.com/oliverbestmann/webgpu/libs-ios v0.0.0-20260628152757-fe2537e7ddac
+## explicit
+github.com/oliverbestmann/webgpu/libs-ios
+# github.com/oliverbestmann/webgpu/libs-linux v0.0.0-20260628152803-421b8a341d08
+## explicit
+github.com/oliverbestmann/webgpu/libs-linux
+# github.com/oliverbestmann/webgpu/libs-windows v0.0.0-20260628152801-f47d1b682eb8
+## explicit
+github.com/oliverbestmann/webgpu/libs-windows
+# github.com/pelletier/go-toml/v2 v2.4.3
+## explicit; go 1.21.0
+github.com/pelletier/go-toml/v2
+github.com/pelletier/go-toml/v2/internal/parserbridge
+github.com/pelletier/go-toml/v2/internal/tracker
+github.com/pelletier/go-toml/v2/unstable
+# github.com/philhofer/fwd v1.2.0
+## explicit; go 1.20
+github.com/philhofer/fwd
+# github.com/spf13/cobra v1.10.2
+## explicit; go 1.15
+github.com/spf13/cobra
+# github.com/spf13/pflag v1.0.10
+## explicit; go 1.12
+github.com/spf13/pflag
+# github.com/stripe/stripe-go/v81 v81.4.0
+## explicit; go 1.13
+github.com/stripe/stripe-go/v81
+github.com/stripe/stripe-go/v81/form
+github.com/stripe/stripe-go/v81/paymentintent
+# github.com/tdewolff/parse/v2 v2.8.14
+## explicit; go 1.11
+github.com/tdewolff/parse/v2/strconv
+# github.com/tinylib/msgp v1.6.4
+## explicit; go 1.24
+github.com/tinylib/msgp/msgp
+# github.com/valyala/bytebufferpool v1.0.0
+## explicit
+github.com/valyala/bytebufferpool
+# github.com/valyala/fasthttp v1.73.0
+## explicit; go 1.25.0
+github.com/valyala/fasthttp
+github.com/valyala/fasthttp/fasthttpadaptor
+github.com/valyala/fasthttp/fasthttputil
+github.com/valyala/fasthttp/prefork
+github.com/valyala/fasthttp/reuseport
+github.com/valyala/fasthttp/stackless
+github.com/valyala/fasthttp/tcplisten
+# golang.org/x/crypto v0.54.0
+## explicit; go 1.25.0
+golang.org/x/crypto/acme
+golang.org/x/crypto/acme/autocert
+# golang.org/x/exp v0.0.0-20260727155853-b88d891fe743
+## explicit; go 1.25.0
+golang.org/x/exp/maps
+# golang.org/x/image v0.44.0
+## explicit; go 1.25.0
+golang.org/x/image/bmp
+golang.org/x/image/ccitt
+golang.org/x/image/draw
+golang.org/x/image/internal/safemath
+golang.org/x/image/math/f64
+golang.org/x/image/math/fixed
+golang.org/x/image/riff
+golang.org/x/image/tiff
+golang.org/x/image/tiff/lzw
+golang.org/x/image/vp8
+golang.org/x/image/vp8l
+golang.org/x/image/webp
+# golang.org/x/mod v0.38.0
+## explicit; go 1.25.0
+golang.org/x/mod/semver
+# golang.org/x/net v0.57.0
+## explicit; go 1.25.0
+golang.org/x/net/html
+golang.org/x/net/html/atom
+golang.org/x/net/html/charset
+golang.org/x/net/idna
+# golang.org/x/sync v0.22.0
+## explicit; go 1.25.0
+golang.org/x/sync/errgroup
+# golang.org/x/sys v0.47.0
+## explicit; go 1.25.0
+golang.org/x/sys/cpu
+golang.org/x/sys/plan9
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+golang.org/x/sys/windows/registry
+# golang.org/x/term v0.45.0
+## explicit; go 1.25.0
+golang.org/x/term
+# golang.org/x/text v0.40.0
+## explicit; go 1.25.0
+golang.org/x/text/cases
+golang.org/x/text/encoding
+golang.org/x/text/encoding/charmap
+golang.org/x/text/encoding/htmlindex
+golang.org/x/text/encoding/internal
+golang.org/x/text/encoding/internal/identifier
+golang.org/x/text/encoding/japanese
+golang.org/x/text/encoding/korean
+golang.org/x/text/encoding/simplifiedchinese
+golang.org/x/text/encoding/traditionalchinese
+golang.org/x/text/encoding/unicode
+golang.org/x/text/internal
+golang.org/x/text/internal/language
+golang.org/x/text/internal/language/compact
+golang.org/x/text/internal/tag
+golang.org/x/text/internal/utf8internal
+golang.org/x/text/language
+golang.org/x/text/runes
+golang.org/x/text/secure/bidirule
+golang.org/x/text/transform
+golang.org/x/text/unicode/bidi
+golang.org/x/text/unicode/norm
+# golang.org/x/tools v0.48.0
+## explicit; go 1.25.0
+golang.org/x/tools/go/ast/edge
+golang.org/x/tools/go/ast/inspector
+golang.org/x/tools/go/gcexportdata
+golang.org/x/tools/go/packages
+golang.org/x/tools/go/types/objectpath
+golang.org/x/tools/go/types/typeutil
+golang.org/x/tools/internal/aliases
+golang.org/x/tools/internal/event
+golang.org/x/tools/internal/event/core
+golang.org/x/tools/internal/event/keys
+golang.org/x/tools/internal/event/label
+golang.org/x/tools/internal/gcimporter
+golang.org/x/tools/internal/gocommand
+golang.org/x/tools/internal/packagesinternal
+golang.org/x/tools/internal/pkgbits
+golang.org/x/tools/internal/stdlib
+golang.org/x/tools/internal/typeparams
+golang.org/x/tools/internal/typesinternal
+golang.org/x/tools/internal/versions
+# mvdan.cc/sh/v3 v3.13.1
+## explicit; go 1.25.0
+mvdan.cc/sh/v3/expand
+mvdan.cc/sh/v3/fileutil
+mvdan.cc/sh/v3/internal
+mvdan.cc/sh/v3/pattern
+mvdan.cc/sh/v3/shell
+mvdan.cc/sh/v3/syntax

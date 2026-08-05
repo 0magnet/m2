@@ -1,0 +1,88 @@
+#########################################################################
+#	M2 CONFIG
+#
+# Copy to <yoursite>.conf and run with:  MENV=<yoursite>.conf m2 run
+# This file is sourced by bash; use shell syntax.
+# Comment a value with # to use the built-in default.
+#########################################################################
+
+### Stripe Configuration ################################################
+
+#-- Live and test API keys - REQUIRED for checkout
+# https://dashboard.stripe.com/apikeys
+STRIPELIVEPK='pk_live_...'
+STRIPELIVESK='sk_live_...'
+STRIPETESTPK='pk_test_...'
+STRIPETESTSK='sk_test_...'
+
+#-- Use the test keys instead of the live keys
+TESTSTRIPEKEY=true
+
+### Product Data ########################################################
+
+#-- Products CSV path (see products.example.csv for the schema)
+PRODUCTSCSV='products.csv'
+
+### Site Identity #######################################################
+
+#-- Image subdomain, no trailing slash (ex. 'https://img.example.com')
+# empty = serve images from ./img
+SITEIMAGESRC=''
+
+#-- Orders subdomain, no trailing slash (ex. 'https://pay.example.com')
+SITEORDERSURL=''
+
+#-- Website (Host) Name - domain minus extension (ex. 'example')
+SITENAME='example'
+
+#-- Website Domain Extension (ex. '.com' '.net')
+SITEEXT='.com'
+
+#-- Site Long Name (ex. 'example electronic surplus')
+SITELONGNAME='example web store'
+
+#-- Site Tag Line
+SITETAGLINE='an example web store'
+
+#-- Site Meta Description (SEO)
+SITEMETA='an example web store selling example things'
+
+#-- Telegram contact + channel; username only, no 'https://t.me/'
+TGCONTACT=''
+TGCHANNEL=''
+
+### Web Server ##########################################################
+
+#-- Port to serve http on
+WEBPORT='9883'
+
+#-- Port for the cogentcore UI dev server
+CORERUNWEBPORT='8536'
+
+#-- Disable the cogentcore UI build + serving; hides the Interface link
+NOCORE=true
+
+#-- Use programmatic pages UI instead of content system
+PAGESUI=false
+
+### WebAssembly #########################################################
+
+#-- Compile wasm with tinygo (smaller output) in addition to go
+USETINYGO=true
+
+#-- wasm source directories, relative paths
+# 'wasm/cart' powers checkout — keep it. Additional entries are drop-in
+# wasm apps: any dir under wasm/ with a main package (a self-contained
+# module with its own vendor/ also works). Empty () disables all wasm.
+WASMSRC=('wasm/cart')
+
+### Receipt Printing (CUPS) #############################################
+
+#-- CUPS printer name (default: system default)
+PRINTERNAME=''
+
+#-- CUPS options, comma separated (ex. 'media=Custom.80x200mm,fit-to-page')
+CUPSOPTIONS=''
+
+#-- timeout for lp command
+LPTIMEOUT='10s'

@@ -1,0 +1,88 @@
+<footer class='footer1'>
+  {{ if .Page.TestMode }}<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test&nbsp;Mode&nbsp;Active&nbsp;-&nbsp;No&nbsp;Orders&nbsp;Processed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>{{else}}<div id='status-container'><div id='status-message'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open&nbsp;For&nbsp;Business&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></div>{{end}}
+<table><tr><td><details><summary>View Cart <span id='total-price'>Total: $0.00</span></summary>
+<div><div id='cart-items'></div><table><tr><td><button onclick='emptyCart()'>Empty Cart</button></td><td><button onclick='clearStorage()'>Clear Local Storage</button></td><td><button id='checkout-button' onclick='goToCheckout()' disabled>Checkout</button></td></tr></table></div>
+</details></td><td id='middletd'>
+<noscript>enable scripts to use the shopping cart</noscript>
+<details><summary>Add Shipping Info</summary><div><form id='shipping-form' onsubmit='return addShippingInfo(event, this);'><table>
+<tr><td><label for='shipping-price'>Amount:</label></td><td>$<input type='number' min='7' step='0.01' value='7.00'  id='shipping-price' name='shipping-price'></td></tr>
+<tr><td><label for='shipping-name'>Name:</label></td><td><input type='text'  id='shipping-name' name='shipping-name'></td></tr>
+<tr><td><label for='shipping-address'>Address:</label></td><td><input type='text' id='shipping-address' name='shipping-address'></td></tr>
+<tr><td><label for='shipping-city'>City:</label></td><td><input type='text' id='shipping-city' name='shipping-city'></td></tr>
+<tr><td><label for='shipping-state'>State:</label></td><td>
+<select  id='shipping-state' name='shipping-state' form='shipping-form'>
+<option value='' selected='selected'>State</option>
+<option value='AL'>Alabama</option>
+<option value='AK'>Alaska</option>
+<option value='AZ'>Arizona</option>
+<option value='AR'>Arkansas</option>
+<option value='CA'>California</option>
+<option value='CO'>Colorado</option>
+<option value='CT'>Connecticut</option>
+<option value='DE'>Delaware</option>
+<option value='DC'>District Of Columbia</option>
+<option value='FL'>Florida</option>
+<option value='GA'>Georgia</option>
+<option value='HI'>Hawaii</option>
+<option value='ID'>Idaho</option>
+<option value='IL'>Illinois</option>
+<option value='IN'>Indiana</option>
+<option value='IA'>Iowa</option>
+<option value='KS'>Kansas</option>
+<option value='KY'>Kentucky</option>
+<option value='LA'>Louisiana</option>
+<option value='ME'>Maine</option>
+<option value='MD'>Maryland</option>
+<option value='MA'>Massachusetts</option>
+<option value='MI'>Michigan</option>
+<option value='MN'>Minnesota</option>
+<option value='MS'>Mississippi</option>
+<option value='MO'>Missouri</option>
+<option value='MT'>Montana</option>
+<option value='NE'>Nebraska</option>
+<option value='NV'>Nevada</option>
+<option value='NH'>New Hampshire</option>
+<option value='NJ'>New Jersey</option>
+<option value='NM'>New Mexico</option>
+<option value='NY'>New York</option>
+<option value='NC'>North Carolina</option>
+<option value='ND'>North Dakota</option>
+<option value='OH'>Ohio</option>
+<option value='OK'>Oklahoma</option>
+<option value='OR'>Oregon</option>
+<option value='PA'>Pennsylvania</option>
+<option value='RI'>Rhode Island</option>
+<option value='SC'>South Carolina</option>
+<option value='SD'>South Dakota</option>
+<option value='TN'>Tennessee</option>
+<option value='TX'>Texas</option>
+<option value='UT'>Utah</option>
+<option value='VT'>Vermont</option>
+<option value='VA'>Virginia</option>
+<option value='WA'>Washington</option>
+<option value='WV'>West Virginia</option>
+<option value='WI'>Wisconsin</option>
+<option value='WY'>Wyoming</option>
+</select></td></tr>
+<tr><td><label for='shipping-zip'>ZIP Code</label></td><td><input type='text' id='shipping-zip' name='shipping-zip'  pattern='^(?!.*\|)[0-9]{5}$' maxlength='5'></td></tr>
+<tr><td><label for='shipping-country'>Country</label></td><td>
+<select name='shipping-country'  id='shipping-country'  form='shipping-form'>
+<option value='United States'>United States</option>
+</select></td></tr>
+<tr><td><label for='shipping-phone'>Phone Number:</label></td><td><input type='tel' name='shipping-phone'  id='shipping-phone' maxlength='10'></td></tr>
+<tr><td><button type='submit'>Add Shipping to Cart</button></td><td></td></tr>
+</table></form></div></details></td>
+</tr></table></footer>
+<dialog id='stripecheckout'>
+<button id="close-dialog-button" onclick="cancelCheckout()" class="cancel-button">×</button>
+<div class='checkout-container' id='checkout-container'>
+<form id='payment-form' class='payment-form'>
+<div id='payment-element'></div>
+<button id='submit'>
+<span class='spinner hidden' id='spinner'></span>
+<span id='button-text'>Pay now</span>
+</button>
+<div id='payment-message' class='hidden'></div>
+</form>
+</div>
+</dialog>

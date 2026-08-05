@@ -1,0 +1,27 @@
+// other.go — optional drop-in for site-specific routes.
+//
+// Copy this file to other.go (which is gitignored) and add any custom
+// endpoints your deployment needs. The init() below registers them via
+// the extraRoutes registry in m2.go; deleting other.go removes the
+// routes with no other code changes. Handlers here have full access to
+// package internals: config (f), templates (mainTmpl/auxTmpl/pageMeta),
+// products (allproducts), and helpers like mustReadFileToString.
+package main
+
+import (
+	"github.com/gofiber/fiber/v3"
+)
+
+func init() {
+	extraRoutes = append(extraRoutes, handleOthers)
+}
+
+func handleOthers(r *fiber.App) {
+	r.Get("/coffee", func(c fiber.Ctx) error { return c.SendStatus(fiber.StatusTeapot) })
+
+	// A page rendered from a deployment-local html fragment:
+	// r.Get("/mypage", func(c fiber.Ctx) error {
+	// 	c.Set("Content-Type", "text/html;charset=utf-8")
+	// 	return c.SendString(mustReadFileToString("content/mypage.html"))
+	// })
+}

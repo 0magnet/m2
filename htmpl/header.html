@@ -1,0 +1,14 @@
+{{ $page := .Page }}{{$lenall := $page.LenAllProducts}}{{$thiscat := .Category}}{{$cats := $page.Cats}}{{ $catsLen := len $cats }}{{$catscounts := $page.CatsCounts}}{{$thissubcat := .Subcategory}}{{ $lenallString := printf "%d" $lenall }}{{ $lenlenallString := len $lenallString }}<header class='☩'><nav class='✠'>
+<table>
+<tr>
+<td>{{template "catsubcats" .}}</td>
+<td><a title='Navigate Home' href='{{ if eq $page.Page "front" }}#{{else}}/{{end}}'>Home</a></td>
+<td><details><summary title='dropdown menu'>Etc...</summary><div>
+<a title='about this site' href='#about'>About</a><br>
+<a title='shipping and refund policy' href='#policy'>Policy</a><br>
+{{if ne .Page.TelegramChannel ""}}<a title='view our telegram channel&#10;pictures of unlisted inventory' href='https://t.me/{{.Page.TelegramChannel}}'>Telegram</a><br>{{end}}
+{{if ne .Page.TelegramContact ""}}<a title='get in touch via telegram' href='https://t.me/{{.Page.TelegramContact}}'>Contact</a><br>{{end}}
+<a title='other misc. links' href='#links'>Links</a><br>
+</div></details></td>
+{{if not .Page.NoCore}}<td><a title='change interface' href='/index.html'>Interface</a></td>{{end}}
+</tr></table></nav></header>

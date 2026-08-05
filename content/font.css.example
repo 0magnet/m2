@@ -1,0 +1,27 @@
+/*
+ * content/font.css — deployment-local web font (optional, not in the repo)
+ *
+ * If this file exists it is served inline at the top of /style.css.
+ * Put @font-face rules here defining the families the site stylesheet
+ * uses: 'mononokiregular' and 'mononokibold'. Any monospace font works;
+ * if the file is absent the site falls back to the browser's default
+ * monospace font.
+ *
+ * The upstream site uses mononoki (https://madmalik.github.io/mononoki/,
+ * SIL OFL 1.1), embedded as base64 so no extra request is made:
+ *
+ * @font-face {
+ *     font-family: 'mononokiregular';
+ *     src: url(data:application/font-woff2;charset=utf-8;base64,...) format('woff2');
+ *     font-weight: normal;
+ *     font-style: normal;
+ * }
+ *
+ * Generate base64 with:  base64 -w0 yourfont.woff2
+ * Or reference a file you serve yourself:
+ *
+ * @font-face {
+ *     font-family: 'mononokiregular';
+ *     src: url('/font/yourfont.woff2') format('woff2');
+ * }
+ */

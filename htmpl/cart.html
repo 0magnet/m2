@@ -1,0 +1,175 @@
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	  console.log("JS: DOM is ready. Proceeding...");
+	// Save and load cart from localStorage
+	function saveCart(cart) {
+	  localStorage.setItem("cartItems", JSON.stringify(cart));
+	}
+	function loadCart() {
+	  return JSON.parse(localStorage.getItem("cartItems")) || [];
+	}
+	function updateCartDisplay() {
+	  const cart = loadCart();
+	  const cartItemsContainer = document.getElementById("cart-items");
+	  const totalPriceElement = document.getElementById("total-price");
+	  const checkoutButton = document.getElementById("checkout-button");
+	  cartItemsContainer.innerHTML = ""; // Clear cart items
+	  let total = 0;
+
+	  // Create table structure
+	  const table = document.createElement("table");
+	  const thead = document.createElement("thead");
+	  const tbody = document.createElement("tbody");
+
+	  // Add table headers with left-aligned text
+	  thead.innerHTML = `
+	    <tr>
+	      <th style="text-align: left;">Item</th>
+	      <th style="text-align: left;">Price</th>
+	      <th style="text-align: left;">Quantity</th>
+	      <th style="text-align: left;">Actions</th>
+	    </tr>
+	  `;
+	  table.appendChild(thead);
+
+	  // Summarize cart items
+	  const cartSummary = cart.reduce((acc, item) => {
+	    const existing = acc.find((i) => i.id === item.id);
+	    if (existing) {
+	      existing.quantity += 1;
+	    } else {
+	      acc.push({ id: item.id, amount: item.amount, quantity: 1 });
+	    }
+	    return acc;
+	  }, []);
+
+	  cartSummary.sort((a, b) => a.id.localeCompare(b.id));
+	  cartSummary.forEach((item) => {
+	    const row = document.createElement("tr");
+
+	    // Replace "|" with "<br>" in the product name
+	    const formattedName = item.id.replace(/\|/g, "<br>");
+
+	    // Check if the product name contains "|"
+	    let productName;
+	    let quantityInput = ''; // We'll conditionally add quantity input
+
+	    if (item.id.includes("|")) {
+	      // If it contains "|", display it as plain text without a link
+	      productName = formattedName;
+	      // Set quantity to 1 and hide the input
+	      quantityInput = `1`;
+	    } else {
+	      // Otherwise, wrap it in a link
+	      productName = `<a href="/p/${item.id}" target="_blank">${formattedName}</a>`;
+	      // Show the quantity input for non-| items
+	      quantityInput = `<input type="number" value="${item.quantity}" min="1" style="width: 50px;"
+	                       onchange="updateItemQuantity('${item.id}', this.value)">`;
+	    }
+
+	    row.innerHTML = `
+	      <td style="text-align: left;">${productName}</td>
+	      <td style="text-align: left;">$${(item.amount / 100).toFixed(2)}</td>
+	      <td style="text-align: left;">${quantityInput}</td>
+	      <td style="text-align: left;">
+	        <button onclick="removeFromCart('${item.id}')">Remove</button>
+	      </td>
+	    `;
+
+	    tbody.appendChild(row);
+	    total += item.amount * item.quantity;
+	  });
+
+	  table.appendChild(tbody);
+	  cartItemsContainer.appendChild(table);
+
+	  // Update total and button state
+	  totalPriceElement.textContent = `Total: $${(total / 100).toFixed(2)}`;
+	  checkoutButton.disabled = !isCheckoutAllowed(cartSummary);
+	}
+
+	// Check if checkout is allowed
+	function isCheckoutAllowed(cart) {
+	  const hasShipping = cart.some((item) => item.id.startsWith("shipping-to"));
+	  const hasNonShipping = cart.some((item) => !item.id.startsWith("shipping-to"));
+	  return hasShipping && hasNonShipping;
+	}
+	// Add to cart
+	function addToCart(id, amount, quantity) {
+	  let cart = loadCart();
+	  // If shipping item, replace any existing shipping item
+	  if (id.startsWith("shipping-to")) {
+		cart = cart.filter((item) => !item.id.startsWith("shipping-to"));
+		cart.push({ id, amount });
+	  } else {
+		for (let i = 0; i < quantity; i++) {
+		  cart.push({ id, amount });
+		}
+	  }
+	  saveCart(cart);
+	  updateCartDisplay();
+	}
+	// Remove from cart
+	window.removeFromCart = function (id) {
+	  let cart = loadCart();
+	  cart = cart.filter((item) => item.id !== id);
+	  saveCart(cart);
+	  updateCartDisplay();
+	};
+	// Update item quantity
+	window.updateItemQuantity = function (id, newQuantity) {
+	  let cart = loadCart();
+	  const itemToUpdate = cart.find((item) => item.id === id);
+	  if (itemToUpdate) {
+		cart = cart.filter((item) => item.id !== id); // Remove old entries
+		for (let i = 0; i < newQuantity; i++) {
+		  cart.push({ id, amount: itemToUpdate.amount });
+		}
+	  }
+	  saveCart(cart);
+	  updateCartDisplay();
+	};
+	// Empty cart
+	window.emptyCart = function () {
+	  localStorage.removeItem("cartItems");
+	  updateCartDisplay();
+	};
+	// Clear all storage
+	window.clearAllStorage = function () {
+	  localStorage.clear();
+	  updateCartDisplay();
+	};
+	// Go to checkout
+	window.goToCheckout = function () {
+	  window.location.href = "/checkout.html";
+	};
+	// Shipping form submission
+	document.getElementById("shipping-form").addEventListener("submit", function (event) {
+	  event.preventDefault();
+	  const shippingInfo = [
+		`${document.getElementById("shipping-name").value}`,
+		`${document.getElementById("shipping-address").value}`,
+		`${document.getElementById("shipping-city").value}`,
+		`${document.getElementById("shipping-state").value}`,
+		`${document.getElementById("shipping-zip").value}`,
+		`${document.getElementById("shipping-country").value}`,
+		`${document.getElementById("shipping-phone").value}`,
+	  ].join("|");
+	  const shippingPrice = parseFloat(document.getElementById("shipping-price").value) * 100;
+	  const shippingItemId = `shipping-to|${shippingInfo}`;
+	  addToCart(shippingItemId, Math.round(shippingPrice), 1);
+	});
+	// Add-to-cart button event listeners
+	document.querySelectorAll(".snipcart-add-item").forEach((button) => {
+	  button.addEventListener("click", () => {
+		const id = button.getAttribute("data-item-id");
+		const amount = Math.round(parseFloat(button.getAttribute("data-item-price")) * 100);
+		const quantityInput = document.getElementById(`qty-${id}`);
+		const quantity = parseInt(quantityInput.value, 10) || 1;
+		addToCart(id, amount, quantity);
+	  });
+	});
+	// Initialize cart display
+	updateCartDisplay();
+});
+</script>

@@ -1,0 +1,6 @@
+<br><h1>{{if eq .Category ""}}All Products{{else}}Category: <a title='Category: {{.Category}}' href='/cat/{{.Category}}'>{{.Category}}</a>{{if ne .Subcategory ""}}{{$index0 := index .Products 0}} | Subcategory: <a title='Category: {{.Category}} Subcategory: {{$index0.Subcategory}}' href='/cat/{{.Category}}/{{.Subcategory}}'>{{$index0.Subcategory}}</a>{{end}}{{end}}</h1>
+{{$page := .Page}}
+<table class='✞'>
+<thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Stock</th><th>Buy</th><th></th></tr></thead>
+<tbody>{{range .Products}}
+<tr><td><a title='Read more about {{.Partno}}' href='/p/{{.Partno}}'><img src='{{$page.ImgSRC}}/{{.Category}}/{{.Image1}}' alt='{{.Name}}' loading='lazy'></a></td><td>{{.Name}}</td><td>${{.Price}}</td><td>{{.Quantity}}</td><td>{{if ne .Quantity "0"}}<input type='number' id='qty-{{.Partno}}' value='1' min='1'><button onclick='addToCart("{{.Partno}}", {{safeJS .Price}})'>Add to cart</button></td>{{end}}<td></td></tr>{{end}}</tbody></table>

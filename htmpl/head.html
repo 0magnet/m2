@@ -1,0 +1,21 @@
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=4.9'>
+<link rel='apple-touch-icon' sizes='180x180' href='{{.Page.ImgSRC}}/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='{{.Page.ImgSRC}}/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='{{.Page.ImgSRC}}/favicon-16x16.png'>
+<!-- link rel='manifest' href='/site.webmanifest'-->
+{{if eq .Page.Page "hidden"}}<meta name="robots" content="noindex">{{end}}
+<link rel='canonical' href='{{.Page.Canonical}}'>
+<link rel="stylesheet" href="/style.css" type="text/css">
+<meta property='og:url' content='{{.Page.Canonical}}'>
+<meta property='og:title' content='{{.Page.Title}}'>
+<title>{{.Page.Title}}</title>
+{{ if ne .Page.KeyWords ""}}<meta name='keywords' content='{{.Page.KeyWords}}'>{{end}}
+{{if ne .Page.Page "front"}}<meta property='og:type' content='website'><meta property="og:image" content="{{.Page.ImgSRC}}/logo.svg">{{end}}
+{{ if ne .Page.MetaDesc ""}}<meta name='description' content='{{.Page.MetaDesc}}'><meta property='og:description' content='{{.Page.MetaDesc}}'>{{end}}
+{{if eq .Page.Page "product"}}{{$p := .Prod }}{{if eq .Page.MetaDesc ""}}<meta name='description' content='{{$p.Name}}{{if ne $p.Subcategory ""}} subcategory: {{$p.Subcategory}};{{end}} category: {{$p.Category}}{{if ne $p.Packagetype ""}} package: {{$p.Packagetype}};{{end}}{{if ne $p.Mfgname ""}} manufacturer: {{$p.Mfgname}};{{end}} {{if ne $p.Materials ""}} material: {{$p.Materials}};{{end}}{{if ne $p.Mfgpartno ""}} MPN: {{$p.Mfgpartno}};{{end}} price: ${{$p.Price}}; {{$p.Quantity}} in stock; condition: {{$p.Condition}} at Magnetosphere.'><meta property='og:description' content='${{$p.Price}} {{$p.Name}}; {{$p.Quantity}} in stock; {{$p.Condition}}{{if ne $p.Packagetype ""}} package: {{$p.Packagetype}};{{end}}{{if ne $p.Mfgname ""}} manufacturer: {{$p.Mfgname}};{{end}} {{if ne $p.Materials ""}} material: {{$p.Materials}};{{end}}{{if ne $p.Mfgpartno ""}} MPN: {{$p.Mfgpartno}};{{end}}; {{if ne $p.Subcategory ""}} Subcategory: {{$p.Subcategory}};{{end}}{{if ne $p.Category ""}} Category: {{$p.Category}};{{end}} at Magnetosphere.'><meta property='og:type' content='product'><meta property='og:image' content='{{.Page.ImgSRC}}/{{if and (ne $p.Image1 "") (ne $p.Category "") }}{{$p.Category}}/{{$p.Image1}}{{else}}logo.svg{{end}}'>{{end}}{{end}}
+{{ template "schema" . }}
+{{ template "wasm" . }}
+{{/* template "cart" . */}}
+</head>

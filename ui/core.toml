@@ -1,0 +1,4 @@
+NamePrefix = "magnetosphere.net"
+[Web]
+  Styles = ["/style.css"]
+  BasePath = "https://magnetosphere.net"

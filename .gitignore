@@ -1,0 +1,79 @@
+# Binary
+m2
+
+# Orders (contains payment data)
+orders/
+
+# Environment config (contains API keys)
+*.conf
+.env
+*.key
+
+# Store data (business-sensitive: costs, stock, bin locations)
+*.csv
+!products.example.csv
+
+# Product images (multi-GB, deployment-local)
+img/
+
+# Compiled wasm (built at startup by `m2 run`)
+*.wasm
+
+# Fonts (deployment-local, see content/font.css.example)
+font/
+ui/mononoki/
+content/font.css
+htmpl/font_base64.html
+
+# Site-specific drop-in routes + their content (see other.go.example)
+other.go
+
+# Site-specific drop-in wasm (self-contained module; see README "Custom wasm")
+wasm/stl2/
+
+# Old UI content backups (site-specific)
+ui/content-bak/
+content/clock.html
+content/mementomori.html
+
+# Site-specific stock-page overrides (repo ships *.example fallbacks)
+content/about.html
+content/about.txt
+content/policy.html
+content/links.html
+content/links.txt
+
+# Per-site branding (deployment-local)
+logo.jpg
+logo.png
+logo.svg
+logoN.png
+logoN.svg
+skycoin3.jpg
+
+# Generated output
+rendered-html/
+ui/bin/
+ui/ui
+ui/products.json
+ui/content/
+NOTES/
+
+# Local tooling
+.claude/
+
+# Editor
+*.swp
+*~
+.~lock.*
+
+# OS
+.DS_Store
+public/
+
+# Demo assets are committed despite the general patterns above
+!demo/demo.conf
+!demo/img/
+!demo/img/**
+!demo/logo.png
+!demo/logo.jpg

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" >
+    <title>Checkout</title>
+    <meta name="description" content="A demo of a payment on Stripe">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- link rel="stylesheet" href="checkout.css" -->
+    <style title="checkout.css">
+    {{ template "css" .}}
+    </style>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <h1>Checkout</h1>
+
+    <!-- Cart Section -->
+    <h2>Your Cart</h2>
+    <ul id="cart-items-display"></ul>
+    <p id="cart-total">Total: $0.00</p>
+
+
+    <!-- Payment Form -->
+    <form id="payment-form">
+      <div id="payment-element"></div>
+      <button id="submit">
+        <span class="spinner hidden" id="spinner"></span>
+        <span id="button-text">Pay now</span>
+      </button>
+      <div id="payment-message" class="hidden"></div>
+    </form>
+
+    <!-- Payment Method Preview -->
+    <div id="dpm-annotation">
+      <p>
+        Payment methods are dynamically displayed based on customer location, order amount, and currency.&nbsp;
+        <a href="#" target="_blank" rel="noopener noreferrer" id="dpm-integration-checker">Preview payment methods by transaction</a>
+      </p>
+    </div>
+
+    <script>
+      const stripe = Stripe("{{.Page.StripePK}}");
+
+      let items = JSON.parse(localStorage.getItem("cartItems")) || [];
+      let elements;
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Validate cart items early
+        if (!validateCartItems(items)) {
+          return; // Exit script if validation fails
+        }
+
+        displayCartItems();
+        initialize();
+      });
+
+      // Validate cart items for at least one shipping and one non-shipping item
+      function validateCartItems(cartItems) {
+        const paymentButton = document.querySelector("#submit");
+        let hasShipping = false;
+        let hasNonShipping = false;
+
+        // Check if the cart contains the required items
+        for (const item of cartItems) {
+          if (item.id.startsWith("shipping-to")) {
+            hasShipping = true;
+          } else {
+            hasNonShipping = true;
+          }
+          if (hasShipping && hasNonShipping) break; // Exit loop early if condition is met
+        }
+
+        if (!hasShipping || !hasNonShipping) {
+          // Display an error message and disable the button
+          paymentButton.disabled = true;
+          showMessage("You need at least one shipping item and one non-shipping item in your cart.");
+          return false;
+        }
+
+        // Enable the button if validation passes
+        paymentButton.disabled = false;
+        return true;
+      }
+
+      async function initialize() {
+        const response = await fetch("{{.Page.OrdersURL}}/create-payment-intent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items })
+        });
+        const { clientSecret, dpmCheckerLink } = await response.json();
+
+        const appearance = { theme: "stripe" };
+        elements = stripe.elements({ appearance, clientSecret });
+
+        const paymentElementOptions = { layout: "tabs" };
+        const paymentElement = elements.create("payment", paymentElementOptions);
+        paymentElement.mount("#payment-element");
+
+        setDpmCheckerLink(dpmCheckerLink);
+      }
+
+      document.querySelector("#payment-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        const { error } = await stripe.confirmPayment({
+          elements,
+          confirmParams: { return_url: document.location.protocol + "//" + document.location.host + "/complete.html" },
+        });
+
+        if (error) {
+          showMessage(error.message || "An unexpected error occurred.");
+        }
+
+        setLoading(false);
+      });
+
+      function showMessage(messageText) {
+        const messageContainer = document.querySelector("#payment-message");
+        messageContainer.classList.remove("hidden");
+        messageContainer.textContent = messageText;
+
+        setTimeout(() => {
+          messageContainer.classList.add("hidden");
+          messageContainer.textContent = "";
+        }, 4000);
+      }
+
+      function setLoading(isLoading) {
+        document.querySelector("#submit").disabled = isLoading;
+        document.querySelector("#spinner").classList.toggle("hidden", !isLoading);
+        document.querySelector("#button-text").classList.toggle("hidden", isLoading);
+      }
+
+      function setDpmCheckerLink(url) {
+        document.querySelector("#dpm-integration-checker").href = url;
+      }
+
+      function displayCartItems() {
+        const cartDisplay = document.getElementById("cart-items-display");
+        const cartTotalElement = document.getElementById("cart-total");
+        cartDisplay.innerHTML = "";
+        let total = 0;
+
+        if (items.length === 0) {
+          cartDisplay.innerHTML = "<p>No items in your cart.</p>";
+          return;
+        }
+
+        items.forEach(item => {
+          const itemElement = document.createElement("li");
+          itemElement.textContent = `${item.id}: $${(item.amount / 100).toFixed(2)} x ${item.quantity || 1}`;
+          cartDisplay.appendChild(itemElement);
+          total += item.amount * (item.quantity || 1); // quantity defaults to 1 if not present
+        });
+
+        cartTotalElement.textContent = `Total: $${(total / 100).toFixed(2)}`;
+      }
+    </script>
+
+  </body>
+</html>

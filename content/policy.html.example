@@ -1,0 +1,9 @@
+<h1>Store Policy</h1>
+<h2>Shipping</h2>
+<p>Orders ship within a few business days of payment.</p>
+<h2>Returns</h2>
+<p>Contact us for return authorization before sending anything back.</p>
+<h2>Privacy</h2>
+<p>Order information is used only to fulfill your order.</p>
+<p>Replace this page by creating <code>content/policy.html</code> in your
+deployment.</p>

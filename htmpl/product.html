@@ -1,0 +1,34 @@
+{{$p := .Prod }}<br><br><br><br>
+<div itemscope itemtype='https://schema.org/Product' itemid='{{$p.Partno}}'>
+<h1 title='{{$p.Name}}' itemprop='name'>{{$p.Name}}</h1>
+<img src='{{.Page.ImgSRC}}/{{$p.Category}}/{{$p.Image1}}' alt='{{$p.Name}}'><br>
+<pre title='${{$p.Price}}' itemprop='price'>Price: ${{$p.Price}}</pre>
+<pre title='{{$p.Quantity}} in stock'>In stock: {{$p.Quantity}}</pre>
+{{if ne $p.Quantity "0"}}<pre><input type='number' id='qty-{{$p.Partno}}' value='1' min='1'><button onclick='addToCart("{{$p.Partno}}", {{safeJS $p.Price}})'>Add to cart</button></pre><pre>partno: {{$p.Partno}}</pre>{{end}}
+{{if equalsIgnoreCase $p.Description1 $p.Name}}{{else}}{{if ne $p.Description1 ""}}<p>{{safeHTML $p.Description1}}</p>{{end}}{{end}}
+{{if ne $p.Mfgname ""}}<pre>Brand: {{$p.Mfgname}}</pre>{{end}}
+{{if ne $p.Mfgpartno ""}}<pre itemprop='mpn'>MPN: {{$p.Mfgpartno}}</pre>{{end}}
+<pre>Category: <a title='Product Category: {{$p.Category}}' href='/#cat-{{$p.Category}}'>{{$p.Category}}</a></pre>
+{{if ne $p.Subcategory ""}}<pre>Subcategory: <a title='Product SubCategory: {{$p.Subcategory}}' href='/#cat-{{$p.Category}}-{{subcatlink $p.Subcategory}}'>{{$p.Subcategory}}</a></pre>{{end}}
+{{if and (ne $p.VoltsRating "0") (ne $p.VoltsRating "0.0") (ne $p.VoltsRating "")}}<pre>Voltage: {{$p.VoltsRating}}</pre>{{end}}
+{{if and (ne $p.Value "0") (ne $p.Value "0.0") (ne $p.Value "")}}<pre>Value: {{$p.Value}}{{$p.ValUnit}}</pre>{{end}}
+{{if and (ne $p.AmpsRating "0") (ne $p.AmpsRating "0.0") (ne $p.AmpsRating "")}}<pre>Amperage: {{$p.AmpsRating}}</pre>{{end}}
+{{if and (ne $p.Tolerance "0") (ne $p.Tolerance "")}}{{- $tolerancePercent := printf "%.2f%%" (mul 100 (toFloat $p.Tolerance)) -}}<pre>Tolerance: {{$tolerancePercent}}</pre>{{end}}
+{{if ne $p.Typ ""}}<pre>Typ: {{$p.Typ}}</pre>{{end}}
+{{if ne $p.Packagetype ""}}<pre id='package-type'>Package Type: {{$p.Packagetype}}</pre>{{end}}
+{{if ne $p.Technology ""}}<pre>Technology: {{$p.Technology}}</pre>{{end}}
+{{if ne $p.Materials ""}}<pre>Materials: {{$p.Materials}}</pre>{{end}}
+{{if and (ne $p.WattsRating "0") (ne $p.WattsRating "0.0") (ne $p.WattsRating "")}}<pre>Watts Rating: {{$p.WattsRating}}</pre>{{end}}
+{{if and (ne $p.Year "0") (ne $p.Year "")}}<pre>Year: {{$p.Year}}</pre>{{end}}
+{{if and (ne $p.CableLengthInches "0") (ne $p.CableLengthInches "0.0") (ne $p.CableLengthInches "")}}<pre>Cable Length: {{$p.CableLengthInches}} inches</pre>{{end}}
+{{if and (ne $p.WeightOz "0") (ne $p.WeightOz "0.0")}}<pre>Weight: {{$p.WeightOz}} oz</pre>{{end}}
+{{if and (ne $p.TempRating "0") (ne $p.TempRating "0.0")}}<pre>Temp rating: {{$p.TempRating}}{{$p.TempUnit}}</pre>{{end}}
+{{if ne $p.Condition ""}}<pre>Condition: {{$p.Condition}}</pre>{{end}}
+{{if ne $p.Datasheet ""}}<pre>Datasheet: <a title='Product Datasheet: {{$p.Datasheet}}' href='{{.Page.ImgSRC}}/pdf/{{$p.Datasheet}}'>{{$p.Datasheet}}</a></pre>{{end}}
+{{if ne $p.Docs ""}}<pre>Documentation: {{safeHTML  $p.Docs}}</pre>{{end}}
+{{if ne $p.Note ""}}<pre>Note: {{safeHTML  $p.Note}}</pre>{{end}}
+{{if ne $p.Warning ""}}<pre>Warning: {{safeHTML  $p.Warning}}</pre>{{end}}
+{{if ne $p.Description2 ""}}<pre>Additional Description: {{safeHTML  $p.Description2}}</pre>{{end}}
+</div>
+{{ if ne ( .Page.WasmBinary | len) 0}}<div id='gocanvas-container'><canvas id='gocanvas'></canvas></div>{{end}}
+<br><br><br>

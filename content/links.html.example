@@ -1,0 +1,7 @@
+<h1>Links</h1>
+<pre>
+<a href='https://github.com/0magnet/m2'>m2 — the store server powering this site</a>
+<a href='https://github.com/0magnet/chaosrack'>chaosrack — the strange-attractor visualizer</a>
+</pre>
+<p>Replace this page by creating <code>content/links.html</code> in your
+deployment.</p>

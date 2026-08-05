@@ -1,0 +1,57 @@
+
+<h1 title='{{.Page.SiteLongName}}'>{{.Page.SiteLongName}}</h1> <h2>- {{.Page.SiteTagLine}} -</h2><h3>{{.Page.SiteName1}}</h3>
+<div class='✝'>
+<div id='categories' class='✟'><div class='center'><fieldset><legend class='center'>Categories</legend>
+<table><thead><tr><th>Count</th><th>Name</th></tr></thead>
+<tbody><tr><td>{{.Page.LenAllProducts}}</td><td><a title='Product Category: All' href='#'>All</a></td></tr>{{$cats := .Page.Cats}}{{$catscounts := .Page.CatsCounts}}{{range $cat := $cats}}
+<tr><td>{{index $catscounts $cat}}</td><td><a title='Product Category: {{$cat}}' href='#cat-{{$cat}}'>{{$cat}}</a></td></tr>{{end}}</tbody></table></fieldset>
+</div></div>{{$imgsrc := .Page.ImgSRC}}{{$cats := .Page.Cats}}{{$prods := .Prods}}{{$page := .Page}}{{range $cat := $cats}}
+<div id='cat-{{$cat}}' class='✟'>
+  <br><br><br>
+  <h2>Category: {{$cat}}</h2>
+  {{if index $page.SubCatsByCat $cat}}
+  <h3>Subcategories:</h3>
+  <ul>{{range $subcat := index $page.SubCatsByCat $cat}}
+    <li><a title='Subcategory: {{$subcat}}' href='#cat-{{$cat}}-{{subcatlink $subcat}}'>{{$subcat}} ({{index (index $page.SubCatsCounts $cat) $subcat}})</a></li>{{end}}
+  </ul>
+  {{$hasOtherProducts := false}}{{range $prod := $prods}}{{if and (eq $prod.Enable "TRUE") (eq $prod.Category $cat) (eq $prod.Subcategory "")}}{{$hasOtherProducts = true}}{{end}}{{end}}{{if $hasOtherProducts}}
+  <h3>Other Products in {{$cat}}:</h3>
+  <table><thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Stock</th><th>Buy</th></tr></thead><tbody>{{range $prod := $prods}}{{if and (eq $prod.Enable "TRUE") (eq $prod.Category $cat) (eq $prod.Subcategory "")}}
+<tr><td><a title='Read more about {{$prod.Partno}}' href='/p/{{$prod.Partno}}'><img src='{{$imgsrc}}/{{$prod.Category}}/{{$prod.Image1}}' alt='{{$prod.Name}}' loading='lazy'></a></td><td>{{$prod.Name}}</td><td>${{$prod.Price}}</td><td>{{$prod.Quantity}}</td><td><input type='number' id='qty-{{$prod.Partno}}' value='1' min='1'><button onclick='addToCart("{{$prod.Partno}}", {{safeJS $prod.Price}})' {{if eq $prod.Quantity "0"}}disabled{{end}}>Add to cart</button></td></tr>
+{{end}}{{end}}
+</tbody></table>
+  {{end}}
+  {{else}}
+  <h3>Products:</h3>
+  <table><thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Stock</th><th>Buy</th></tr></thead><tbody>{{range $prod := $prods}}{{if and (eq $prod.Enable "TRUE") (eq $prod.Category $cat)}}
+<tr><td><a title='Read more about {{$prod.Partno}}' href='/p/{{$prod.Partno}}'><img src='{{$imgsrc}}/{{$prod.Category}}/{{$prod.Image1}}' alt='{{$prod.Name}}' loading='lazy'></a></td><td>{{$prod.Name}}</td><td>${{$prod.Price}}</td><td>{{$prod.Quantity}}</td><td><input type='number' id='qty-{{$prod.Partno}}' value='1' min='1'><button onclick='addToCart("{{$prod.Partno}}", {{safeJS $prod.Price}})' {{if eq $prod.Quantity "0"}}disabled{{end}}>Add to cart</button></td></tr>
+{{end}}{{end}}
+</tbody></table>
+  {{end}}
+  <br><br><br><br><br><br>
+</div>
+{{range $subcat := index $page.SubCatsByCat $cat}}
+<div id='cat-{{$cat}}-{{subcatlink $subcat}}' class='✟'>
+  <br><br><br>
+  <h2>{{$cat}} → {{$subcat}}</h2>
+  <h3>Products:</h3>
+  <table><thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Stock</th><th>Buy</th></tr></thead><tbody>{{range $prod := $prods}}{{if and (eq $prod.Enable "TRUE") (eq $prod.Category $cat) (eq $prod.Subcategory $subcat)}}
+<tr><td><a title='Read more about {{$prod.Partno}}' href='/p/{{$prod.Partno}}'><img src='{{$imgsrc}}/{{$prod.Category}}/{{$prod.Image1}}' alt='{{$prod.Name}}' loading='lazy'></a></td><td>{{$prod.Name}}</td><td>${{$prod.Price}}</td><td>{{$prod.Quantity}}</td><td><input type='number' id='qty-{{$prod.Partno}}' value='1' min='1'><button onclick='addToCart("{{$prod.Partno}}", {{safeJS $prod.Price}})' {{if eq $prod.Quantity "0"}}disabled{{end}}>Add to cart</button></td></tr>
+{{end}}{{end}}
+</tbody></table><br><br><br><br><br><br>
+</div>
+{{end}}
+{{end}}
+<div id='about' class='✟'>{{template "about" .}}</div>
+{{if .Page.Mobile}}{{else}}<div id='links' class='✟'>{{template "links" .}}</div>{{end}}
+<div id='policy' class='✟'>{{template "policy" .}}</div>
+<div id='home' class='✟'>
+<div id='htmlanimation'></div>
+{{ if ne ( .Page.WasmBinary | len) 0}}<div id='gocanvas-container'><canvas id='gocanvas'></canvas></div>{{end}}
+<img id=logo src='{{.Page.ImgSRC}}/logo.svg' alt='welcome to {{.Page.SiteLongName}}'>
+<p>
+{{.Page.SiteASCIILogo}}
+<p>
+{{.Page.SitePrettyNameCaps}}
+</p>
+{{if ne .Page.Message ""}}<div>{{.Page.Message}}</div>{{end}}</div></div>

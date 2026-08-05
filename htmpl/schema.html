@@ -1,0 +1,102 @@
+{{if eq .Page.Page "product"}}{{$p := .Prod }}<script title='schema.org data for this product page' type='application/ld+json'>
+{
+"@context" : "http://schema.org",
+"@type" : "Product",
+"name" : "{{$p.Name}}",
+"image" : "https:///i/{{$p.Category}}/{{$p.Image1}}",
+"sku": "{{$p.Partno}}",
+{{if ne $p.Mfgpartno ""}}"mpn": "{{$p.Mfgpartno}}",{{end}}
+"description" : "{{$p.Name}}",
+"productID" : "{{$p.Partno}}",
+{{if ne $p.Mfgname ""}}"brand": {
+"@type": "Brand",
+"name": "{{$p.Mfgname}}"
+},{{end}}
+"offers" : {
+"@type" : "Offer",
+"priceCurrency": "USD",
+"url" : "https://{{.Page.SiteName}}/p/{{$p.Partno}}",
+"price" : "{{$p.Price}}",
+{{if ne .Condition "used"}}"itemCondition": "https://schema.org/NewCondition",{{else}}"itemCondition": "https://schema.org/UsedCondition",{{end}}
+"availability" : "https://schema.org/InStock",
+"seller": {
+"@type": "Organization",
+"name": "{{.Page.SiteName}}",
+"url": "https://{{.Page.SiteName}}"
+},
+"ShippingDetails": {
+"@type": "OfferShippingDetails",
+{{if and (ne $p.WeightOz "0") (ne $p.WeightOz "0.0") (ne $p.WeightOz "")}}"weight": {
+"@type": "QuantitativeValue",
+"value": {{$p.WeightOz}},
+"unitCode": "oz"
+},{{end}}
+"shippingRate": {
+"@type": "MonetaryAmount",
+"value": 7.00,
+"currency": "USD"
+},
+"deliveryTime": {
+"@type": "ShippingDeliveryTime",
+"businessDays": {
+"@type": "OpeningHoursSpecification",
+"dayOfWeek": [
+"https://schema.org/Monday",
+"https://schema.org/Tuesday",
+"https://schema.org/Wednesday",
+"https://schema.org/Thursday",
+"https://schema.org/Friday"
+]
+},
+"cutoffTime": "12:00:15Z",
+"handlingTime": {
+"@type": "QuantitativeValue",
+"minValue": 1,
+"maxValue": 2,
+"unitCode": "d"
+},
+"transitTime": {
+"@type": "QuantitativeValue",
+"minValue": 1,
+"maxValue": 10,
+"unitCode": "d"
+}
+}
+}
+}
+</script>{{end}}
+{{if eq .Page.Page "front"}}<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://{{.Page.SiteName}}/#website",
+      "name": "{{.Page.SitePrettyName}}",
+      "url": "https://{{.Page.SiteName}}"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://{{.Page.RequestHost}}/#organization",
+      "name": "{{.Page.SitePrettyNameCap}}",
+      "description": "{{.Page.MetaDesc}}",
+      "url": "https://{{.Page.SiteName}}",
+      "logo": "https://{{.Page.SiteName}}/i/logo.svg",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+		  "contactOption": "https://t.me/{{.Page.TelegramContact}}",
+          "contactType": "Sales",
+          "areaServed": "US",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://t.me/{{.Page.TelegramChannel}}"
+      ]
+    }
+  ]
+}
+</script>{{end}}

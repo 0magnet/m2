@@ -1,0 +1,9 @@
+<pre>{{.Page.SiteASCIILogo}}</pre>
+<h1>About {{.Page.SiteName}}</h1>
+<p>{{.Page.SitePrettyName}} is a web store built on
+<a href='https://github.com/0magnet/m2'>m2</a>, a single-binary Go store
+server with a CSV product catalog, Stripe checkout, and a WebAssembly
+frontend.</p>
+<p>Replace this page by creating <code>content/about.html</code> in your
+deployment — it overrides this stock page without touching tracked files.</p>
+<p>&copy; {{.Page.Year}} {{.Page.SiteName}}</p>
