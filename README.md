@@ -156,3 +156,38 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
+## Dependency Graph
+
+Made with [goda](https://github.com/loov/goda):
+
+```
+go run github.com/loov/goda@latest graph github.com/0magnet/m2/... | dot -Tsvg -o docs/m2-goda-graph.svg
+```
+
+![Dependency Graph](docs/m2-goda-graph.svg "github.com/0magnet/m2 Dependency Graph")
+
+## Lines of Code
+
+Made with [gocloc](https://github.com/hhatto/gocloc) (excludes `vendor/`, `node_modules/`, `.git/`):
+
+```
+gocloc --not-match-d='(vendor|node_modules|\.git)' .
+```
+
+```
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Go                              27            530            599           4404
+HTML                            17             64             33            915
+CSS                              2             22             22            361
+Markdown                         3             35              0            170
+YAML                             1              0              0            102
+BASH                             3              5             18             71
+Makefile                         1              8              0             19
+XML                              1              0              0              8
+TOML                             1              0              0              4
+-------------------------------------------------------------------------------
+TOTAL                           56            664            672           6054
+-------------------------------------------------------------------------------
+```
