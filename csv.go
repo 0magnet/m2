@@ -29,8 +29,16 @@ func readproductscsv(csvFile string) (data []byte) {
 
 const csvMinFields = 51 // f[0] through f[50]
 
-func readCSV(csvFile string) (prods p.Products) {
-	scanner := bufio.NewScanner(bytes.NewReader(readproductscsv(csvFile)))
+// readCSV reads the catalog from a file. The parsing is in parseCSV so that
+// it can be tested without one.
+func readCSV(csvFile string) p.Products {
+	return parseCSV(readproductscsv(csvFile))
+}
+
+// parseCSV turns the catalog bytes into products, skipping rows that are not
+// enabled and rows too short to fill one.
+func parseCSV(data []byte) (prods p.Products) {
+	scanner := bufio.NewScanner(bytes.NewReader(data))
 	lineNum := 0
 	for scanner.Scan() {
 		lineNum++
