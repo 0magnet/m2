@@ -79,7 +79,7 @@ func mustReadFileToBytes(path string) []byte {
 }
 
 type htmlTemplate struct {
-	Empty           func() string
+	Empty          func() string
 	Head           func() string
 	Logo           func() string
 	Header         func() string
@@ -107,7 +107,7 @@ type htmlTemplate struct {
 }
 
 var h = htmlTemplate{
-	Empty:           func() string { return mustReadFileToString("htmpl/empty.html") },
+	Empty:          func() string { return mustReadFileToString("htmpl/empty.html") },
 	Head:           func() string { return mustReadFileToString("htmpl/head.html") },
 	Logo:           func() string { return mustReadFileToString("htmpl/logo.html") },
 	Header:         func() string { return mustReadFileToString("htmpl/header.html") },

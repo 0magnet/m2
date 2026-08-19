@@ -9,7 +9,6 @@ import (
 	"strings"
 	"time"
 
-	p "github.com/0magnet/m2/pkg/product"
 	"cogentcore.org/core/colors"
 	"cogentcore.org/core/core"
 	"cogentcore.org/core/cursors"
@@ -21,6 +20,7 @@ import (
 	"cogentcore.org/core/text/rich"
 	"cogentcore.org/core/text/text"
 	"cogentcore.org/core/tree"
+	p "github.com/0magnet/m2/pkg/product"
 	"golang.org/x/image/draw"
 	goimage "image"
 	_ "image/jpeg"

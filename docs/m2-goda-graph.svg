@@ -12,10 +12,10 @@
 <!-- github.com/0magnet/m2 -->
 <g id="node1" class="node">
 <title>github.com/0magnet/m2</title>
-<g id="a_node1"><a xlink:href="https://pkg.go.dev/github.com/0magnet/m2" xlink:title="github.com/0magnet/m2\l2436 / 77.5KB\l" target="_graphviz">
+<g id="a_node1"><a xlink:href="https://pkg.go.dev/github.com/0magnet/m2" xlink:title="github.com/0magnet/m2\l2433 / 77.5KB\l" target="_graphviz">
 <polygon fill="none" stroke="#07910f" stroke-width="2" stroke-opacity="0.698039" points="180,-90 36,-90 36,-54 180,-54 180,-90"/>
 <text xml:space="preserve" text-anchor="start" x="44" y="-75.25" font-family="Times,serif" font-size="10.00">github.com/0magnet/m2</text>
-<text xml:space="preserve" text-anchor="start" x="44" y="-62.5" font-family="Times,serif" font-size="10.00">2436 / 77.5KB</text>
+<text xml:space="preserve" text-anchor="start" x="44" y="-62.5" font-family="Times,serif" font-size="10.00">2433 / 77.5KB</text>
 </a>
 </g>
 </g>
@@ -38,10 +38,10 @@
 <!-- github.com/0magnet/m2/ui -->
 <g id="node3" class="node">
 <title>github.com/0magnet/m2/ui</title>
-<g id="a_node3"><a xlink:href="https://pkg.go.dev/github.com/0magnet/m2/ui" xlink:title="github.com/0magnet/m2/ui\l1386 / 40.3KB\l" target="_graphviz">
+<g id="a_node3"><a xlink:href="https://pkg.go.dev/github.com/0magnet/m2/ui" xlink:title="github.com/0magnet/m2/ui\l1808 / 51.1KB\l" target="_graphviz">
 <polygon fill="none" stroke="#269107" stroke-width="2" stroke-opacity="0.698039" points="198,-36 18,-36 18,0 198,0 198,-36"/>
 <text xml:space="preserve" text-anchor="start" x="26" y="-21.25" font-family="Times,serif" font-size="10.00">github.com/0magnet/m2/ui</text>
-<text xml:space="preserve" text-anchor="start" x="26" y="-8.5" font-family="Times,serif" font-size="10.00">1386 / 40.3KB</text>
+<text xml:space="preserve" text-anchor="start" x="26" y="-8.5" font-family="Times,serif" font-size="10.00">1808 / 51.1KB</text>
 </a>
 </g>
 </g>
@@ -54,10 +54,10 @@
 <!-- github.com/0magnet/m2/wasm/cart -->
 <g id="node4" class="node">
 <title>github.com/0magnet/m2/wasm/cart</title>
-<g id="a_node4"><a xlink:href="https://pkg.go.dev/github.com/0magnet/m2/wasm/cart" xlink:title="github.com/0magnet/m2/wasm/cart\l672 / 23.1KB\l" target="_graphviz">
+<g id="a_node4"><a xlink:href="https://pkg.go.dev/github.com/0magnet/m2/wasm/cart" xlink:title="github.com/0magnet/m2/wasm/cart\l680 / 23.3KB\l" target="_graphviz">
 <polygon fill="none" stroke="#4c9107" stroke-width="2" stroke-opacity="0.698039" points="216,-144 0,-144 0,-108 216,-108 216,-144"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-129.25" font-family="Times,serif" font-size="10.00">github.com/0magnet/m2/wasm/cart</text>
-<text xml:space="preserve" text-anchor="start" x="8" y="-116.5" font-family="Times,serif" font-size="10.00">672 / 23.1KB</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-116.5" font-family="Times,serif" font-size="10.00">680 / 23.3KB</text>
 </a>
 </g>
 </g>

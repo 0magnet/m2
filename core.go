@@ -127,7 +127,7 @@ func buildCORE() {
 func createCORE() {
 	log.Println("Creating Content Files")
 	if _, err := script.Exec(`bash -c 'rm -rf ui/content ; cp -r ui/content-bak ui/content'`).Stdout(); err != nil {
-		log.Fatalf(err.Error())
+		log.Fatal(err)
 	}
 	log.Println("Populating Content")
 	prodPageMDTmpl, err := ttmpl.New("index").Funcs(htmpl.FuncMap{
@@ -139,7 +139,7 @@ func createCORE() {
 	}).Parse(h.ProductPageMD())
 	if err != nil {
 		log.Println("Error parsing product page markdown template:", err)
-		log.Fatalf(err.Error())
+		log.Fatal(err)
 	}
 
 	catPageMDTmpl, err := ttmpl.New("index").Funcs(htmpl.FuncMap{
@@ -151,7 +151,7 @@ func createCORE() {
 	}).Parse(h.CategoryPageMD())
 	if err != nil {
 		log.Println("Error parsing category page markdown template:", err)
-		log.Fatalf(err.Error())
+		log.Fatal(err)
 	}
 
 	var enabled []p.Product
@@ -214,7 +214,7 @@ func createCORE() {
 		var buf bytes.Buffer
 		err := prodPageMDTmpl.Execute(&buf, map[string]interface{}{"Prod": product, "Domain": f.Sitedomain})
 		if err != nil {
-			log.Fatalf(err.Error())
+			log.Fatal(err)
 		}
 		lines := strings.Split(buf.String(), "\n")
 		var cleanedLines []string
@@ -227,7 +227,7 @@ func createCORE() {
 		filename := "ui/content/" + escapesubcat(product.Partno) + ".md"
 		_, err = script.Echo(cleaned).WriteFile(filename)
 		if err != nil {
-			log.Fatalf(err.Error())
+			log.Fatal(err)
 		}
 	}
 	log.Println("Writing products.json")
@@ -275,6 +275,6 @@ func createCORE() {
 
 	_, err = script.Echo(string(output)).WriteFile("ui/products.json")
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Fatal(err)
 	}
 }

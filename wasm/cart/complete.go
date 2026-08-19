@@ -1,3 +1,5 @@
+//go:build js && wasm
+
 // Package main complete.go
 package main
 
@@ -132,7 +134,7 @@ func submitOrder(localStorageData map[string]interface{}, paymentIntentId string
 
 	body, err := json.Marshal(orderData)
 	if err != nil {
-		log.Println(wasmName+":", "Error marshalling order data:", err)
+		log.Println(wasmName+":", "Error marshaling order data:", err)
 		return
 	}
 
@@ -151,30 +153,32 @@ func submitOrder(localStorageData map[string]interface{}, paymentIntentId string
 	}
 
 	fetch.Invoke("/submit-order", js.ValueOf(options)).Call("then", js.FuncOf(func(this js.Value, args []js.Value) interface{} {
-	    response := args[0]
-	    if !response.Get("ok").Bool() {
-	        response.Call("text").Call("then", js.FuncOf(func(this js.Value, args []js.Value) interface{} {
-	            errText := args[0].String()
-	            log.Println(wasmName+":", "Order submit failed:", errText)
-	            js.Global().Call("alert", "Order submission failed:\n"+errText)
-	            return nil
-	        }))
-	        return nil
-	    }
-	    response.Call("json").Call("then", js.FuncOf(func(this js.Value, args []js.Value) interface{} {
-	        data := args[0]
-	        log.Println(wasmName+":", "Order submitted successfully:", data)
-	        return nil
-	    }))
-	    return nil
+		response := args[0]
+		if !response.Get("ok").Bool() {
+			response.Call("text").Call("then", js.FuncOf(func(this js.Value, args []js.Value) interface{} {
+				errText := args[0].String()
+				log.Println(wasmName+":", "Order submit failed:", errText)
+				js.Global().Call("alert", "Order submission failed:\n"+errText)
+				return nil
+			}))
+			return nil
+		}
+		response.Call("json").Call("then", js.FuncOf(func(this js.Value, args []js.Value) interface{} {
+			data := args[0]
+			log.Println(wasmName+":", "Order submitted successfully:", data)
+			return nil
+		}))
+		return nil
 	}))
 }
 
 func setPaymentDetails(intent js.Value) {
-	var statusText, iconColor, icon string
-	statusText = "Something went wrong, please try again."
-	iconColor = "#DF1B41"
-	icon = errorIcon
+	// Every path through the switch below sets this, including its default,
+	// so there is nothing to fall back to. iconColor and icon do fall back:
+	// the cases that only change the wording leave them red.
+	var statusText string
+	iconColor := "#DF1B41"
+	icon := errorIcon
 
 	if !intent.IsUndefined() {
 		intentStatus := intent.Get("status").String()

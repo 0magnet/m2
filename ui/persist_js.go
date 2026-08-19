@@ -22,8 +22,10 @@ type legacyItem struct {
 
 // LoadCartState restores the cart from window.localStorage using the server format:
 // [
-//   {"id": "rect-VS-43CTQ", "amount": 104, "quantity": 2},
-//   {"id": "shipping-to|...","amount": 700, "quantity": 1}
+//
+//	{"id": "rect-VS-43CTQ", "amount": 104, "quantity": 2},
+//	{"id": "shipping-to|...","amount": 700, "quantity": 1}
+//
 // ]
 func LoadCartState() (map[string]*CartItem, bool) {
 	ls := js.Global().Get("localStorage")

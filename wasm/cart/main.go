@@ -1,3 +1,5 @@
+//go:build js && wasm
+
 package main
 
 import (
@@ -15,11 +17,9 @@ type item struct {
 }
 
 var (
-	wasmName   string
-	doc        = js.Global().Get("document")
-	body       = doc.Call("querySelector", "body")
-	bodystring = body.Get("innerHTML").String()
-	cart       []item
+	wasmName string
+	doc      = js.Global().Get("document")
+	cart     []item
 )
 
 func main() {
@@ -44,7 +44,7 @@ func main() {
 
 	<-ready
 
-	c := make(chan struct{}, 0)
+	c := make(chan struct{})
 	if stripePK == "" {
 		log.Fatal("Stripe PK not found!")
 	}

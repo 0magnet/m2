@@ -1,3 +1,5 @@
+//go:build js && wasm
+
 // Package main complete.go
 package main
 
@@ -25,9 +27,16 @@ func saveCart() {
 	updateCartDisplay()
 }
 
-func addToCart(this js.Value, args []js.Value) any {
-	if len(args) < 2 {
-		return "Error: Missing arguments"
+// addToCart is called from Go rather than registered with js.FuncOf, so it
+// keeps the callback shape its callers build but returns nothing.
+//
+// The guard reads three arguments, not two: qty is args[2]. Checking for two
+// and then indexing the third is an out-of-range panic for any caller that
+// passes exactly two, which is what the check was there to prevent.
+func addToCart(_ js.Value, args []js.Value) {
+	if len(args) < 3 {
+		log.Println(wasmName+":", "addToCart: missing arguments")
+		return
 	}
 	var cartItem item
 	index := -1
@@ -37,7 +46,7 @@ func addToCart(this js.Value, args []js.Value) any {
 		qty = 1
 	}
 	amount := int(args[1].Float()) * qty
-	for i, _ := range cart {
+	for i := range cart {
 		if strings.Split(cart[i].ID, "|")[0] == strings.Split(id, "|")[0] {
 			index = i
 		}
@@ -61,7 +70,6 @@ func addToCart(this js.Value, args []js.Value) any {
 		cart = append(cart, cartItem)
 	}
 	saveCart()
-	return nil
 }
 
 func addUnToCart(this js.Value, args []js.Value) interface{} {
@@ -189,7 +197,7 @@ func updateItemQuantity(this js.Value, args []js.Value) interface{} {
 	if err != nil {
 		log.Println(err)
 	}
-	for i, _ := range cart {
+	for i := range cart {
 		if cart[i].ID == id {
 			unitPrice := cart[i].Amount / cart[i].Qty
 			cart[i].Qty = qty

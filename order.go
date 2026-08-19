@@ -195,7 +195,7 @@ func handleOrder(r *fiber.App) {
 		}
 
 		ordersDir := "./orders"
-		if err := os.MkdirAll(ordersDir, os.ModePerm); err != nil {
+		if err := os.MkdirAll(ordersDir, 0o750); err != nil {
 			log.Printf("Error creating orders directory: %v", err)
 			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Unable to save order"})
 		}
@@ -222,7 +222,7 @@ func handleOrder(r *fiber.App) {
 			log.Printf("Error marshaling data to json: %v", err)
 			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Unable to save order"})
 		}
-		if err := os.WriteFile(filePath, data, 0o644); err != nil {
+		if err := os.WriteFile(filePath, data, 0o600); err != nil {
 			log.Printf("Error writing data to file: %v", err)
 			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Unable to save order"})
 		}
@@ -236,7 +236,7 @@ func handleOrder(r *fiber.App) {
 			}
 			if err := sendToCUPS(receipt, "Order "+pid); err != nil {
 				log.Printf("print failed: %v", err)
-				_ = os.WriteFile(filepath.Join(ordersDir, pid+".print_failed"), []byte(err.Error()), 0o644)
+				_ = os.WriteFile(filepath.Join(ordersDir, pid+".print_failed"), []byte(err.Error()), 0o600) //nolint:errcheck // a best-effort marker that the receipt did not print; the failure is already logged
 			}
 		}(requestData.PaymentIntentID, requestData.LocalStorageData)
 

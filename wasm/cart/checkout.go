@@ -1,3 +1,5 @@
+//go:build js && wasm
+
 package main
 
 import (
@@ -43,8 +45,6 @@ var (
 	elements       js.Value
 	stripeValue    js.Value
 	stripe         js.Value
-	checkoutButton = doc.Call("getElementById", "checkout-button")
-	checkoutDiv    = doc.Call("getElementById", "checkout-container")
 	checkoutStripe = doc.Call("getElementById", "stripecheckout")
 )
 
@@ -105,7 +105,7 @@ func goToCheckout(this js.Value, args []js.Value) any {
 }
 
 func cancelCheckout(this js.Value, args []js.Value) any {
-	log.Println(wasmName+":", "Cancelling checkout ; closing dialog")
+	log.Println(wasmName+":", "Canceling checkout ; closing dialog")
 	checkoutStripe.Call("close")
 	updateCartDisplay()
 	return nil

@@ -21,7 +21,6 @@ import (
 	"github.com/gofiber/fiber/v3/middleware/static"
 )
 
-
 func main() { Execute() }
 
 var collapseNewlines = regexp.MustCompile(`\n{2,}`)
@@ -193,25 +192,24 @@ func logo(c fiber.Ctx) error {
 
 	img2txtFlags := ""
 	if w, err := strconv.Atoi(c.Params("width")); err == nil {
-		img2txtFlags = fmt.Sprintf("--width=%d ",w)
+		img2txtFlags = fmt.Sprintf("--width=%d ", w)
 	}
 	if h, err := strconv.Atoi(c.Params("height")); err == nil {
-		img2txtFlags = fmt.Sprintf("--height=%d ",h)
+		img2txtFlags = fmt.Sprintf("--height=%d ", h)
 	}
 
 	logoHTMLslice, err := script.Exec(fmt.Sprintf("bash -c 'img2txt %s logo.jpg | ansifilter -H'", img2txtFlags)).Slice()
 	if err != nil {
 		log.Println("error: ", err)
-		_, err = c.Status(fiber.StatusInternalServerError).Write([]byte(err.Error()+"/n"+strings.Join(logoHTMLslice,"\n")))
+		_, err = c.Status(fiber.StatusInternalServerError).Write([]byte(err.Error() + "/n" + strings.Join(logoHTMLslice, "\n")))
 		return err
 	}
 	if len(logoHTMLslice) > 2 {
-	    logoHTMLslice = logoHTMLslice[:len(logoHTMLslice)-3]
+		logoHTMLslice = logoHTMLslice[:len(logoHTMLslice)-3]
 	}
 	if len(logoHTMLslice) > 18 {
-	    logoHTMLslice = logoHTMLslice[19:]
+		logoHTMLslice = logoHTMLslice[19:]
 	}
-
 
 	var result bytes.Buffer
 	h1 := pageMeta(c, htmlTemplateData{})

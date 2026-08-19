@@ -161,7 +161,9 @@ WantedBy=multi-user.target
 Made with [goda](https://github.com/loov/goda):
 
 ```
-go run github.com/loov/goda@latest graph github.com/0magnet/m2/... | dot -Tsvg -o docs/m2-goda-graph.svg
+# GOOS=js: the import edges of a wasm program live in js/wasm-tagged
+# files and are invisible to a host-context run
+GOOS=js GOARCH=wasm go run github.com/loov/goda@latest graph github.com/0magnet/m2/... | dot -Tsvg -o docs/m2-goda-graph.svg
 ```
 
 ![Dependency Graph](docs/m2-goda-graph.svg "github.com/0magnet/m2 Dependency Graph")
@@ -178,16 +180,17 @@ gocloc --not-match-d='(vendor|node_modules|\.git)' .
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Go                              27            530            599           4404
+Go                              27            535            613           4397
 HTML                            17             64             33            915
 CSS                              2             22             22            361
-Markdown                         3             35              0            170
-YAML                             1              0              0            102
+Markdown                         3             42              0            198
+YAML                             1              0              7             98
 BASH                             3              5             18             71
-Makefile                         1              8              0             19
+Makefile                         1             14             21             55
+Bourne Shell                     1              8             16             30
 XML                              1              0              0              8
 TOML                             1              0              0              4
 -------------------------------------------------------------------------------
-TOTAL                           56            664            672           6054
+TOTAL                           57            690            730           6137
 -------------------------------------------------------------------------------
 ```

@@ -19,7 +19,6 @@ import (
 //go:embed *.go
 var quine embed.FS
 
-var sourceWasm = os.DirFS("wasm")
 var sourcesWasm []fs.FS
 var sourceCore = os.DirFS("ui")
 var sourceHtml = os.DirFS("htmpl")
@@ -58,7 +57,6 @@ func serveSourceCode(r *fiber.App) {
 	r.Get("/sourcecode/content", sourcecodecontent)
 	r.Get("/sourcecode/go", sourcecodego)
 	r.Get("/sourcecode/core", sourcecodecore)
-	//	r.Get("/sourcecodewasm", sourcecodewasm)
 	r.Get("/sourcecode/wasm", func(c fiber.Ctx) error {
 		ret := `<!doctype html>
 <html lang='en'>
@@ -99,10 +97,6 @@ func sourcecodego(c fiber.Ctx) error {
 	return sourcecode(c, quine, "monokai", "go")
 }
 
-func sourcecodewasm(c fiber.Ctx) error {
-	return sourcecode(c, sourceWasm, "dracula", "go")
-}
-
 func sourcecodecore(c fiber.Ctx) error {
 	return sourcecode(c, sourceCore, "solarized-dark256", "go")
 }
@@ -112,7 +106,7 @@ func sourcecode(c fiber.Ctx, fsys fs.FS, styleName string, lang string) error {
 	var buf bytes.Buffer
 	var builder strings.Builder
 
-	fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, err error) error {
+	if err := fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
@@ -126,7 +120,9 @@ func sourcecode(c fiber.Ctx, fsys fs.FS, styleName string, lang string) error {
 			builder.WriteString("\n\n")
 		}
 		return nil
-	})
+	}); err != nil {
+		return err
+	}
 
 	// Pick lexer & style
 	lexer := lexers.Get(lang)
@@ -153,7 +149,7 @@ func sourcecode(c fiber.Ctx, fsys fs.FS, styleName string, lang string) error {
 
 	// Optional: include CSS in output
 	var css bytes.Buffer
-	_ = formatter.WriteCSS(&css, style)
+	_ = formatter.WriteCSS(&css, style) //nolint:errcheck // the stylesheet is decoration; the highlighted source is still readable without it
 	buf.WriteString("<style>")
 	buf.Write(css.Bytes())
 	buf.WriteString("</style>")

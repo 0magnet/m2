@@ -48,7 +48,7 @@ var genCmd = &cobra.Command{
 	Short: "generate conf template",
 	Long:  "generate conf template",
 	Run: func(_ *cobra.Command, _ []string) {
-		fmt.Println(envfiletemplate)
+		fmt.Print(envfiletemplate)
 	},
 }
 
@@ -116,8 +116,8 @@ type flagVars struct {
 
 var f = flagVars{
 	//	WasmSRC: []string{"wasm/stl2.go","wasm/checkout_wasm.go"},
-	WasmExecPath:       runtime.GOROOT() + "/lib/wasm/wasm_exec.js",                                    //nolint
-	WasmExecPathGo:     runtime.GOROOT() + "/lib/wasm/wasm_exec.js",                                    //nolint
+	WasmExecPath:       runtime.GOROOT() + "/lib/wasm/wasm_exec.js",                                     //nolint
+	WasmExecPathGo:     runtime.GOROOT() + "/lib/wasm/wasm_exec.js",                                     //nolint
 	WasmExecPathTinyGo: strings.TrimSuffix(runtime.GOROOT(), "go") + "tinygo" + "/targets/wasm_exec.js", //nolint
 	Gobuild:            "go build",
 	Tinygobuild:        "tinygo build -target=wasm --no-debug",
@@ -145,7 +145,7 @@ var a = true
 var b = false
 
 func addStringFlag(cmds []*cobra.Command, f interface{}, fieldPtr *string, description string) {
-	for i, _ := range cmds {
+	for i := range cmds {
 		cmds[i].Flags().StringVarP(fieldPtr, ccc(fieldPtr, f, b), getNextShortFlag(), scriptExecString(fmt.Sprintf("${%s%s}", ccc(fieldPtr, f, a), func(s string) string {
 			if s != "" {
 				s = "-" + s
@@ -156,7 +156,7 @@ func addStringFlag(cmds []*cobra.Command, f interface{}, fieldPtr *string, descr
 }
 
 func addStringSliceFlag(cmds []*cobra.Command, f interface{}, fieldPtr *[]string, description string) {
-	for i, _ := range cmds {
+	for i := range cmds {
 		cmds[i].Flags().StringSliceVarP(
 			fieldPtr,
 			ccc(fieldPtr, f, b),
@@ -168,14 +168,14 @@ func addStringSliceFlag(cmds []*cobra.Command, f interface{}, fieldPtr *[]string
 }
 
 func addBoolFlag(cmds []*cobra.Command, f interface{}, fieldPtr *bool, description string) {
-	for i, _ := range cmds {
+	for i := range cmds {
 		cmds[i].Flags().BoolVarP(fieldPtr, ccc(fieldPtr, f, b), getNextShortFlag(), scriptExecBool(fmt.Sprintf("${%s%s}", ccc(fieldPtr, f, a), func(b bool) string {
 			return "-" + strconv.FormatBool(b)
 		}(*fieldPtr))), fmt.Sprintf("%s env: %s\033[0m\n\r", description, ccc(fieldPtr, f, a)))
 	}
 }
 func addIntFlag(cmds []*cobra.Command, f interface{}, fieldPtr *int, description string) {
-	for i, _ := range cmds {
+	for i := range cmds {
 		cmds[i].Flags().IntVarP(fieldPtr, ccc(fieldPtr, f, b), getNextShortFlag(), scriptExecInt(fmt.Sprintf("${%s%s}", ccc(fieldPtr, f, a), func(i int) string {
 			return fmt.Sprintf("-%d", i)
 		}(*fieldPtr))), fmt.Sprintf("%s env: %s\033[0m\n\r", description, ccc(fieldPtr, f, a)))

@@ -297,5 +297,6 @@ func showSpinner(on bool) {
 func hideSpinner() { showSpinner(false) }
 
 type strErr string
+
 func (e strErr) Error() string { return string(e) }
 func errStr(s string) error    { return strErr(s) }
