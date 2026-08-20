@@ -1,6 +1,6 @@
 # codeberg.org/go-pdf/fpdf v0.12.0
 ## explicit; go 1.25.0
-# cogentcore.org/core v0.3.39
+# cogentcore.org/core v0.3.41
 ## explicit; go 1.25.6
 cogentcore.org/core/base/bools
 cogentcore.org/core/base/datasize
@@ -120,7 +120,7 @@ cogentcore.org/core/text/token
 cogentcore.org/core/tree
 cogentcore.org/core/types
 cogentcore.org/core/yaegicore/coresymbols
-# github.com/0magnet/calvin v0.0.0-20241204203002-126d3bcd81d8
+# github.com/0magnet/calvin v0.0.0-20260819232707-179462135685
 ## explicit; go 1.23.3
 github.com/0magnet/calvin
 # github.com/Bios-Marcel/wastebasket/v2 v2.0.3
@@ -149,8 +149,8 @@ github.com/alecthomas/chroma/v2/styles
 github.com/andybalholm/brotli
 github.com/andybalholm/brotli/flate
 github.com/andybalholm/brotli/matchfinder
-# github.com/anthonynsimon/bild v0.16.1
-## explicit; go 1.26
+# github.com/anthonynsimon/bild v0.17.0
+## explicit; go 1.25.0
 github.com/anthonynsimon/bild/clone
 github.com/anthonynsimon/bild/convolution
 github.com/anthonynsimon/bild/math/f64
@@ -160,7 +160,7 @@ github.com/anthonynsimon/bild/transform
 ## explicit
 github.com/aymerick/douceur/css
 github.com/aymerick/douceur/parser
-# github.com/bitfield/script v0.24.3
+# github.com/bitfield/script v0.25.0
 ## explicit; go 1.25.0
 github.com/bitfield/script
 # github.com/briandowns/spinner v1.23.2
@@ -174,7 +174,7 @@ github.com/chewxy/math32
 github.com/cogentcore/yaegi/internal/unsafe2
 github.com/cogentcore/yaegi/interp
 github.com/cogentcore/yaegi/stdlib/generic
-# github.com/dlclark/regexp2/v2 v2.5.2
+# github.com/dlclark/regexp2/v2 v2.7.1
 ## explicit; go 1.25
 github.com/dlclark/regexp2/v2
 github.com/dlclark/regexp2/v2/helpers
@@ -223,17 +223,20 @@ github.com/gobwas/glob/syntax/ast
 github.com/gobwas/glob/syntax/lexer
 github.com/gobwas/glob/util/runes
 github.com/gobwas/glob/util/strings
-# github.com/gofiber/fiber/v3 v3.4.0
+# github.com/gofiber/fiber/v3 v3.5.0
 ## explicit; go 1.25.0
 github.com/gofiber/fiber/v3
 github.com/gofiber/fiber/v3/binder
 github.com/gofiber/fiber/v3/internal/contextvalue
+github.com/gofiber/fiber/v3/internal/fieldname
 github.com/gofiber/fiber/v3/internal/logtemplate
+github.com/gofiber/fiber/v3/internal/mediatype
 github.com/gofiber/fiber/v3/internal/nilerror
 github.com/gofiber/fiber/v3/internal/schemehost
+github.com/gofiber/fiber/v3/internal/urlnorm
 github.com/gofiber/fiber/v3/log
 github.com/gofiber/fiber/v3/middleware/static
-# github.com/gofiber/schema v1.8.3
+# github.com/gofiber/schema v1.8.4
 ## explicit; go 1.25.0
 github.com/gofiber/schema
 # github.com/gofiber/utils/v2 v2.4.1
@@ -245,7 +248,7 @@ github.com/gofiber/utils/v2/internal/unsafeconv
 github.com/gofiber/utils/v2/simd
 github.com/gofiber/utils/v2/strings
 github.com/gofiber/utils/v2/swar
-# github.com/gomarkdown/markdown v0.0.0-20260725000948-8435af3f5984
+# github.com/gomarkdown/markdown v0.0.0-20260818103853-6d1f24fc3a11
 ## explicit; go 1.12
 github.com/gomarkdown/markdown
 github.com/gomarkdown/markdown/ast
@@ -300,7 +303,7 @@ github.com/jeandeaual/go-locale
 # github.com/jinzhu/copier v0.4.0
 ## explicit; go 1.13
 github.com/jinzhu/copier
-# github.com/klauspost/compress v1.19.1
+# github.com/klauspost/compress v1.19.2
 ## explicit; go 1.24
 github.com/klauspost/compress
 github.com/klauspost/compress/flate
@@ -322,7 +325,7 @@ github.com/mattn/go-isatty
 # github.com/mitchellh/go-homedir v1.1.0
 ## explicit
 github.com/mitchellh/go-homedir
-# github.com/oliverbestmann/webgpu v1.34.2
+# github.com/oliverbestmann/webgpu v1.34.3
 ## explicit; go 1.25
 github.com/oliverbestmann/webgpu/jsx
 github.com/oliverbestmann/webgpu/wgpu
@@ -362,7 +365,7 @@ github.com/spf13/pflag
 github.com/stripe/stripe-go/v81
 github.com/stripe/stripe-go/v81/form
 github.com/stripe/stripe-go/v81/paymentintent
-# github.com/tdewolff/parse/v2 v2.8.14
+# github.com/tdewolff/parse/v2 v2.8.16
 ## explicit; go 1.11
 github.com/tdewolff/parse/v2/strconv
 # github.com/tinylib/msgp v1.6.4
@@ -380,14 +383,14 @@ github.com/valyala/fasthttp/prefork
 github.com/valyala/fasthttp/reuseport
 github.com/valyala/fasthttp/stackless
 github.com/valyala/fasthttp/tcplisten
-# golang.org/x/crypto v0.54.0
+# golang.org/x/crypto v0.55.0
 ## explicit; go 1.25.0
 golang.org/x/crypto/acme
 golang.org/x/crypto/acme/autocert
-# golang.org/x/exp v0.0.0-20260727155853-b88d891fe743
+# golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297
 ## explicit; go 1.25.0
 golang.org/x/exp/maps
-# golang.org/x/image v0.44.0
+# golang.org/x/image v0.45.0
 ## explicit; go 1.25.0
 golang.org/x/image/bmp
 golang.org/x/image/ccitt
@@ -401,10 +404,10 @@ golang.org/x/image/tiff/lzw
 golang.org/x/image/vp8
 golang.org/x/image/vp8l
 golang.org/x/image/webp
-# golang.org/x/mod v0.38.0
+# golang.org/x/mod v0.40.0
 ## explicit; go 1.25.0
 golang.org/x/mod/semver
-# golang.org/x/net v0.57.0
+# golang.org/x/net v0.58.0
 ## explicit; go 1.25.0
 golang.org/x/net/html
 golang.org/x/net/html/atom
@@ -423,7 +426,7 @@ golang.org/x/sys/windows/registry
 # golang.org/x/term v0.45.0
 ## explicit; go 1.25.0
 golang.org/x/term
-# golang.org/x/text v0.40.0
+# golang.org/x/text v0.41.0
 ## explicit; go 1.25.0
 golang.org/x/text/cases
 golang.org/x/text/encoding
@@ -447,14 +450,13 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
-# golang.org/x/tools v0.48.0
+# golang.org/x/tools v0.49.0
 ## explicit; go 1.25.0
 golang.org/x/tools/go/ast/edge
 golang.org/x/tools/go/ast/inspector
 golang.org/x/tools/go/gcexportdata
 golang.org/x/tools/go/packages
 golang.org/x/tools/go/types/objectpath
-golang.org/x/tools/go/types/typeutil
 golang.org/x/tools/internal/aliases
 golang.org/x/tools/internal/event
 golang.org/x/tools/internal/event/core
@@ -462,10 +464,10 @@ golang.org/x/tools/internal/event/keys
 golang.org/x/tools/internal/event/label
 golang.org/x/tools/internal/gcimporter
 golang.org/x/tools/internal/gocommand
+golang.org/x/tools/internal/moremaps
 golang.org/x/tools/internal/packagesinternal
 golang.org/x/tools/internal/pkgbits
 golang.org/x/tools/internal/stdlib
-golang.org/x/tools/internal/typeparams
 golang.org/x/tools/internal/typesinternal
 golang.org/x/tools/internal/versions
 # mvdan.cc/sh/v3 v3.13.1

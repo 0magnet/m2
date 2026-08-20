@@ -3,17 +3,17 @@ module github.com/0magnet/m2
 go 1.26.2
 
 require (
-	cogentcore.org/core v0.3.39
-	github.com/0magnet/calvin v0.0.0-20241204203002-126d3bcd81d8
+	cogentcore.org/core v0.3.41
+	github.com/0magnet/calvin v0.0.0-20260819232707-179462135685
 	github.com/alecthomas/chroma/v2 v2.27.0
-	github.com/bitfield/script v0.24.3
+	github.com/bitfield/script v0.25.0
 	github.com/briandowns/spinner v1.23.2
-	github.com/gofiber/fiber/v3 v3.4.0
+	github.com/gofiber/fiber/v3 v3.5.0
 	github.com/ivanpirog/coloredcobra v1.0.1
 	github.com/spf13/cobra v1.10.2
 	github.com/stripe/stripe-go/v81 v81.4.0
-	golang.org/x/image v0.44.0
-	golang.org/x/text v0.40.0
+	golang.org/x/image v0.45.0
+	golang.org/x/text v0.41.0
 )
 
 require (
@@ -22,20 +22,20 @@ require (
 	github.com/Masterminds/vcs v1.13.3 // indirect
 	github.com/adrg/strutil v0.3.1 // indirect
 	github.com/andybalholm/brotli v1.2.2 // indirect
-	github.com/anthonynsimon/bild v0.16.1 // indirect
+	github.com/anthonynsimon/bild v0.17.0 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/chewxy/math32 v1.11.2 // indirect
 	github.com/cogentcore/yaegi v0.0.0-20260116172027-700fbf8949f3 // indirect
-	github.com/dlclark/regexp2/v2 v2.5.2 // indirect
+	github.com/dlclark/regexp2/v2 v2.7.1 // indirect
 	github.com/ericchiang/css v1.4.0 // indirect
 	github.com/fatih/color v1.19.0 // indirect
 	github.com/fsnotify/fsnotify v1.10.1 // indirect
 	github.com/go-gl/glfw/v3.4/glfw v0.1.0-pre.1.0.20260707082822-2a407d02d01a // indirect
 	github.com/go-text/typesetting v0.3.5-0.20260729084153-ddb7ff96ad4d // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
-	github.com/gofiber/schema v1.8.3 // indirect
+	github.com/gofiber/schema v1.8.4 // indirect
 	github.com/gofiber/utils/v2 v2.4.1 // indirect
-	github.com/gomarkdown/markdown v0.0.0-20260725000948-8435af3f5984 // indirect
+	github.com/gomarkdown/markdown v0.0.0-20260818103853-6d1f24fc3a11 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/css v1.0.1 // indirect
 	github.com/h2non/filetype v1.1.3 // indirect
@@ -47,11 +47,11 @@ require (
 	github.com/itchyny/timefmt-go v0.1.8 // indirect
 	github.com/jeandeaual/go-locale v0.0.0-20250612000132-0ef82f21eade // indirect
 	github.com/jinzhu/copier v0.4.0 // indirect
-	github.com/klauspost/compress v1.19.1 // indirect
+	github.com/klauspost/compress v1.19.2 // indirect
 	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/oliverbestmann/webgpu v1.34.2 // indirect
+	github.com/oliverbestmann/webgpu v1.34.3 // indirect
 	github.com/oliverbestmann/webgpu/libs-android v0.0.0-20260628152806-6b27e30a172e // indirect
 	github.com/oliverbestmann/webgpu/libs-darwin v0.0.0-20260628152755-66a5dfa57f8d // indirect
 	github.com/oliverbestmann/webgpu/libs-ios v0.0.0-20260628152757-fe2537e7ddac // indirect
@@ -60,18 +60,18 @@ require (
 	github.com/pelletier/go-toml/v2 v2.4.3 // indirect
 	github.com/philhofer/fwd v1.2.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
-	github.com/tdewolff/parse/v2 v2.8.14 // indirect
+	github.com/tdewolff/parse/v2 v2.8.16 // indirect
 	github.com/tinylib/msgp v1.6.4 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.73.0 // indirect
-	golang.org/x/crypto v0.54.0 // indirect
-	golang.org/x/exp v0.0.0-20260727155853-b88d891fe743 // indirect
-	golang.org/x/mod v0.38.0 // indirect
-	golang.org/x/net v0.57.0 // indirect
+	golang.org/x/crypto v0.55.0 // indirect
+	golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297 // indirect
+	golang.org/x/mod v0.40.0 // indirect
+	golang.org/x/net v0.58.0 // indirect
 	golang.org/x/sync v0.22.0 // indirect
 	golang.org/x/sys v0.47.0 // indirect
 	golang.org/x/term v0.45.0 // indirect
-	golang.org/x/tools v0.48.0 // indirect
+	golang.org/x/tools v0.49.0 // indirect
 	mvdan.cc/sh/v3 v3.13.1 // indirect
 )
 
