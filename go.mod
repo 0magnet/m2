@@ -4,7 +4,7 @@ go 1.26.2
 
 require (
 	cogentcore.org/core v0.3.41
-	github.com/0magnet/calvin v0.0.0-20260819232707-179462135685
+	github.com/0magnet/calvin v0.0.0-20260821223054-326629922218
 	github.com/alecthomas/chroma/v2 v2.27.0
 	github.com/bitfield/script v0.25.0
 	github.com/briandowns/spinner v1.23.2
@@ -65,7 +65,7 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.73.0 // indirect
 	golang.org/x/crypto v0.55.0 // indirect
-	golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297 // indirect
+	golang.org/x/exp v0.0.0-20260820142414-ca536658362e // indirect
 	golang.org/x/mod v0.40.0 // indirect
 	golang.org/x/net v0.58.0 // indirect
 	golang.org/x/sync v0.22.0 // indirect

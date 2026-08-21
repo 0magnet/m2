@@ -120,8 +120,8 @@ cogentcore.org/core/text/token
 cogentcore.org/core/tree
 cogentcore.org/core/types
 cogentcore.org/core/yaegicore/coresymbols
-# github.com/0magnet/calvin v0.0.0-20260819232707-179462135685
-## explicit; go 1.23.3
+# github.com/0magnet/calvin v0.0.0-20260821223054-326629922218
+## explicit; go 1.25.0
 github.com/0magnet/calvin
 # github.com/Bios-Marcel/wastebasket/v2 v2.0.3
 ## explicit; go 1.23.4
@@ -387,8 +387,8 @@ github.com/valyala/fasthttp/tcplisten
 ## explicit; go 1.25.0
 golang.org/x/crypto/acme
 golang.org/x/crypto/acme/autocert
-# golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297
-## explicit; go 1.25.0
+# golang.org/x/exp v0.0.0-20260820142414-ca536658362e
+## explicit; go 1.26.0
 golang.org/x/exp/maps
 # golang.org/x/image v0.45.0
 ## explicit; go 1.25.0
